@@ -1,47 +1,50 @@
 <?php
 session_start();
-require "conexion/conexion.php";
+require ("conexion/conexion.php");
   //$conexion=conexion();
   // Obtengo los datos cargados en el formulario de login.
   $usuario = $_POST['usuario'];
-  $clave = $_POST['clave'];
+  $clave =$_POST['clave'];
+  $tipo =$_POST['tipo'];
    
   // Consulta segura para evitar inyecciones SQL.
-  $sql = "SELECT usuario, clave FROM usuario WHERE usuario='$usuario' AND clave ='$clave'";
+  $sql = "SELECT usuario, clave, tipo FROM usuario WHERE usuario='$usuario' AND clave ='$clave'";
   //$resultado = $conn->query($sql);
 
    $resultado = mysqli_query($conexion,$sql);
    $filas=mysqli_num_rows($resultado);
   //la intruccion mysqli_num_rows Verificando si el usuario existe en la base de datos.
    if($filas>0){
-   	session_start();
-   	$_SESSION['usuario'] = $usuario;
-   	echo 1;
-/*
+  
+   	//echo 1;
+
     while($datos = $resultado->fetch_assoc() ){        
 
     	if($datos['tipo']=='Gerente' && $tipo=='Gerente'){
-    		//header("Location: InicioPrincipal.php");
+    		header("Location: ../vistas/InicioPrincipal.php");
     		session_start();
     		$_SESSION['usuario'] = $usuario;
-    		echo 1;
+    		//echo 1;
     	}else
 
     	if($datos['tipo']=='Administrador' && $tipo=='Administrador'){
-    		//header("Location: Administrador/InicioPrincipal.php");
+    		header("Location: ../index.html");
+        session_start();
     		$_SESSION['usuario'] = $usuario;
-    		echo 0;
+    		//echo 0;
     	}else
 
     		if($datos['tipo']=='Vendedor' && $tipo=='Vendedor'){
-    			//header("Location: Vendedor/InicioPrincipal.php");
+    			header("Location: ../index.html");
+          session_start();
     			$_SESSION['usuario'] = $usuario;
-    			echo 0;
+    			//echo 0;
     		}
     	}
-    	*/
+    	
     }else{
-    	echo 0;
+      header("Location: ../index.html");
+    	
     }
   
         $conexion->close();

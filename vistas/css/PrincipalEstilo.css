@@ -73,7 +73,14 @@ div#menu-horizontal{
 	text-align:center;	
 	
 }
-
+.content{
+	padding: 0px 40%;
+}
+#nanvar{
+	height: -100px;
+	text-decoration: none;	
+	list-style-type: none;
+}
 /*-----------------SUBMENU DE CLIENTES---------------------*/
 /*-----------------SUBMENU DE CLIENTES---------------------*/
 
@@ -172,7 +179,7 @@ div#menu-horizontal{
 	position: relative;
 }
 .nav li ul li ul{
-	right: -174px;
+	right: -85px;
 	top: 0px;
 
 }
