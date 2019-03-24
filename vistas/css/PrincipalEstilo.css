@@ -1,0 +1,415 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	margin:0px;
+	padding: 0px;
+}
+
+div#menu-horizontal{
+	position: absolute;
+
+}
+
+.mnul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: dodgerblue;
+	top: 0;
+	width: 100%;
+    height: 75px;
+
+}
+
+.mnul .mnli{
+	float: left;
+
+}
+
+.mnli{
+	transition: all 0.3s;
+}
+
+.mnul .mnli .active{
+	display: block;
+	color: white;
+	text-align:center;
+	padding: 14px 16px;
+	text-decoration: none;
+
+
+}
+
+.active{
+	font-size:14px;
+}
+.activeUsuario1{
+	font-size: 14px;
+	color: white;
+	text-align:center;
+	text-decoration: none;
+	padding: 6px 8px;
+	display: block;
+}
+.activeUsuario2{
+	font-size: 14px;
+	color: white;
+	text-align:center;
+	text-decoration: none;
+	padding: 6px 8px;
+}
+
+
+.mnli:hover {
+	background-color: blue;
+	border-left:  5px solid aquamarine;
+}
+
+
+.icon-clie {
+	cursor:pointer;
+	width: 35px;
+	height:35px;
+	text-align:center;	
+	
+}
+
+/*-----------------SUBMENU DE CLIENTES---------------------*/
+/*-----------------SUBMENU DE CLIENTES---------------------*/
+
+.subClientes .subClientesli .activeClie{
+	margin:-15px;
+	margin-left: -32px;
+	background: darkturquoise;
+	color: white;
+	text-decoration: none;	
+	list-style-type: none;
+	padding: 15px 20%;
+	display: block;
+	width: 170px;
+	
+	
+}
+.subClientes .subClientesli .activeClie:hover{
+	background-color: blue;
+}
+.activeClie{
+	font-size: 14px;
+}
+.subClientesli{
+	transition: all 0.5s;
+}
+
+.mnul > li{
+	float: right;
+
+}
+.mnul li ul{
+	display: none;
+	position: absolute;
+	min-width: 110px;
+	text-decoration: none;
+	margin: auto;
+	list-style-type: none;
+	line-height: 30px;
+
+}
+.mnul li:hover > ul{
+	display: block;
+	
+	}
+
+/*-----------------SUBMENU DE PROVEEDORES---------------------*/
+/*-----------------SUBMENU DE PROVEEDORES---------------------*/
+
+.subProve .subProveli .activeProve{
+	margin:-15px;
+	margin-left: -32px;
+	background: darkturquoise;
+	color: white;
+	text-decoration: none;	
+	list-style-type: none;
+	padding: 15px 20%;
+	display: block;
+	width: 170px;
+
+	
+	
+}
+.subProve .subProveli .activeProve:hover{
+	background-color: blue;
+		
+}
+.activeProve{
+	font-size: 14px;
+}
+
+.subProveli{
+	transition: all 0.5s;
+}
+
+.mnul > li{
+	float: right;
+}
+.mnul li ul{
+	display: none;
+	position: absolute;
+	min-width: 110px;
+	text-decoration: none;
+	margin: auto;
+	list-style-type: none;
+	line-height: 30px;
+}
+.mnul li:hover > ul{
+	display: block;
+	
+	}
+
+/*-----------------SUB-SUB MENU DE PROVEEDORES FISICOS Y MORALES---------------------*/
+/*-----------------SUB-SUB MENU DE PROVEEDORES FISICOS Y MORALES---------------------*/
+
+.nav li ul li{
+	position: relative;
+}
+.nav li ul li ul{
+	right: -174px;
+	top: 0px;
+
+}
+
+.subProveFM .subProveliFM .activeProveFM{
+	
+	background: darkturquoise;
+	color: white;
+	text-decoration: none;	
+	list-style-type: none;
+	padding: 10px ;
+	display: block;
+	font-size: 14px;
+	
+	
+}
+.subProveFM .subProveliFM .activeProveFM:hover{
+	background-color: blue;
+}
+
+
+/*-----------------SUBMENU DE Trabajadores---------------------*/
+/*-----------------SUBMENU DE Trabajadores---------------------*/
+
+
+.subTraba .subTrabali .activeTraba{
+	margin:-15px;
+	margin-left: -32px;
+	background: darkturquoise;
+	color: white;
+	text-decoration: none;	
+	list-style-type: none;
+	padding: 15px 20%;
+	display: block;
+	width: 190px;
+
+	
+	
+}
+.subTraba .subTrabali .activeTraba:hover{
+	background-color: blue;
+	
+	
+}
+.activeTraba{
+	font-size: 14px;
+}
+
+.subTrabali{
+	transition: all 0.5s;
+}
+
+.mnul > li{
+	float: right;
+}
+.mnul li ul{
+	display: none;
+	position: absolute;
+	min-width: 110px;
+	text-decoration: none;
+	margin: auto;
+	list-style-type: none;
+	line-height: 30px;
+}
+.mnul li:hover > ul{
+	display: block;
+	
+	}
+
+/*-----------------SUBMENU DE Usuario---------------------*/
+/*-----------------SUBMENU DE Usuario---------------------*/
+
+
+.subUsuario .subUsuarioli .activeUsuario{
+	margin:-15px;
+	margin-left: -32px;
+	background: darkturquoise;
+	color: white;
+	text-decoration: none;	
+	list-style-type: none;
+	padding: 15px 20%;
+	display: block;
+	width: 190px;
+	
+	
+}
+.subUsuario .subUsuarioli .activeUsuario:hover{
+	background-color: blue;
+	
+	
+}
+.activeUsuario{
+	font-size: 14px;
+}
+
+.subUsuarioli{
+	transition: all 0.5s;
+}
+
+.mnul > li{
+	float: right;
+}
+.mnul li ul{
+	display: none;
+	position: absolute;
+	min-width: 110px;
+	text-decoration: none;
+	margin: auto;
+	list-style-type: none;
+	line-height: 30px;
+}
+.mnul li:hover > ul{
+	display: block;
+	
+	}
+
+
+/*-----------------SUBMENU DE Almacen---------------------*/
+/*-----------------SUBMENU DE Almacen---------------------*/
+
+.subAlmacen .subAlmacenli .activeAlmacen{
+	margin:-15px;
+	margin-left: -32px;
+	background: darkturquoise;
+	color: white;
+	text-decoration: none;	
+	list-style-type: none;
+	padding: 10px 20%;
+	display: block;
+	width: 150px;
+
+	
+	
+}
+.subAlmacen .subAlmacenli .activeAlmacen:hover{
+	background-color: blue;
+	
+	
+}
+.activeAlmacen{
+	font-size: 14px;
+}
+
+.subUsuarioli{
+	transition: all 0.5s;
+}
+
+.mnul > li{
+	float: right;
+}
+.mnul li ul{
+	display: none;
+	position: absolute;
+	min-width: 110px;
+	text-decoration: none;
+	margin: auto;
+	list-style-type: none;
+	line-height: 30px;
+}
+.mnul li:hover > ul{
+	display: block;
+	
+	}
+
+
+/*-----------------SENGUNDO MENU---------------------*/
+/*-----------------SENGUNDO MENU---------------------*/
+
+h2{
+	text-align:center;
+	margin: 0;
+	padding: 10px;
+	background: crimson;
+	width: 90%;
+}
+
+.menu-vertical{
+	position: absolute;
+	width: 190px;
+	height: 100%;
+	background-color: royalblue;
+	
+}
+
+div.menu{
+	width: 150px;
+	height: 40px;
+	margin-left: 10px;
+	margin-top: 25px;
+	cursor:pointer;
+}
+
+img.icon-oper{
+	width: 40px;
+	height: 40px;
+
+}
+div.logo-int{
+	float: left;
+	width: 40px;
+	height: 40px;
+}
+
+a.texto{
+	margin-left: 60px;
+	line-height: 40px;
+	text-decoration: none;
+	display: block;
+	color: white;
+
+}
+
+.menu{
+	transition: all 0.3s;
+}
+.menu:hover {
+	background-color: blue;
+	border-left:  5px solid crimson;
+}
+
+div.hola{
+	
+	right: 0px;
+	left: 0px;
+	height: 30px;
+}
+
+.sisveal{
+	text-align: center;
+	width:500px;
+	left: 250px;
+}
+
+.copiray{
+	padding: 15px 100px;
+	text-align: center;
+	color: white;
+	font-size: 4;
+	background-color: dodgerblue;
+}
