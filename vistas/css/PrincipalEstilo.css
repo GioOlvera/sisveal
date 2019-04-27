@@ -34,10 +34,9 @@ div#menu-horizontal{
 	display: block;
 	color: white;
 	text-align:center;
-	padding: 14px 16px;
+	padding: 14px 15px;
 	text-decoration: none;
-
-
+	position: relative;
 }
 
 .active{
@@ -74,13 +73,26 @@ div#menu-horizontal{
 	
 }
 .content{
-	padding: 0px 40%;
+	padding: 0px 50%;
 }
 #nanvar{
 	height: -100px;
 	text-decoration: none;	
 	list-style-type: none;
 }
+/*-----------------IMAGENES---------------------*/
+/*-----------------IMAGENES---------------------*/
+div.mninicio{
+	background-image: url('../img/Inicio.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+div#mninicio{
+	background-image: url('../img/Inicio.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 /*-----------------SUBMENU DE CLIENTES---------------------*/
 /*-----------------SUBMENU DE CLIENTES---------------------*/
 
@@ -93,7 +105,7 @@ div#menu-horizontal{
 	list-style-type: none;
 	padding: 15px 20%;
 	display: block;
-	width: 170px;
+	width: 240px;
 	
 	
 }
@@ -138,7 +150,7 @@ div#menu-horizontal{
 	list-style-type: none;
 	padding: 15px 20%;
 	display: block;
-	width: 170px;
+	width: 240px;
 
 	
 	
@@ -214,7 +226,7 @@ div#menu-horizontal{
 	list-style-type: none;
 	padding: 15px 20%;
 	display: block;
-	width: 190px;
+	width: 240px;
 
 	
 	
@@ -262,7 +274,7 @@ div#menu-horizontal{
 	list-style-type: none;
 	padding: 15px 20%;
 	display: block;
-	width: 190px;
+	width: 240px;
 	
 	
 }
@@ -309,7 +321,7 @@ div#menu-horizontal{
 	list-style-type: none;
 	padding: 10px 20%;
 	display: block;
-	width: 150px;
+	width: 240px;
 
 	
 	
@@ -414,9 +426,11 @@ div.hola{
 }
 
 .copiray{
-	padding: 15px 100px;
+	padding: 12px 100px;
 	text-align: center;
+	text-decoration: none;
+	list-style-type: none;
 	color: white;
-	font-size: 4;
+	font-size: 3;
 	background-color: dodgerblue;
 }

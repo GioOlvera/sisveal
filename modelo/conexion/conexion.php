@@ -10,7 +10,7 @@ mysqli_set_charset($conexion,'utf8');
 if(!$conexion){
 	echo 'no conecta';
 }else{
-	echo 'CONECTADO';
+	//echo 'CONECTADO';
 }
 
 ?>
