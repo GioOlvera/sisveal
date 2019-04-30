@@ -1,82 +1,52 @@
-<script language="javascript">
+<script type="text/javascript">
+  function enviar(idCliente) {
+  d=idCliente;
   
-var llenar = document.getElementById("buscadorCliente");
-function llenar(idCliente) {
-
-color.innerHTML=color.innerHTML=="nombre":"";
+  $('#idClienteV').val(d);
 
 }
 </script>
 <?php
-
+header("Content-Type: text/html;charset=utf-8");
 require_once "../conexion/conexion.php";
 
 $salida = "";
 
-$query = "SELECT * FROM cliente ORDER BY nombreCliente";
-$espacio = "";
+$query = "SELECT * FROM cliente ORDER BY idCliente";
+
 if(isset($_POST['consulta'])){
   $q = $conexion->real_escape_string($_POST['consulta']);
-  $query = "SELECT idCliente, nombreCliente, apCliente, amCliente FROM cliente
-  WHERE nombreCliente LIKE '%".$q."%' OR apCliente LIKE '%".$q."%' OR amCliente LIKE '%".$q."%'";
+  $query = "SELECT idCliente, nombreCliente, apCliente, amCliente FROM cliente WHERE nombreCliente LIKE '%".$q."%' OR apCliente LIKE '%".$q."%' OR amCliente LIKE '%".$q."%'";
 }
 
+
+$query = utf8_decode($query);
 $resultado = $conexion->query($query);
 
 
 if ($resultado ->num_rows > 0)  {
 
-
-
-  while($mostrar = $resultado->fetch_assoc()){
-    if(isset($_POST['consulta'])){
+  $salida = "
+        
       
-        $salida.="
+        <datalist  class='estado-list' id='browsers'>";
+           
+           while($mostrar = $resultado->fetch_assoc()){
+            $salida.="
 
-      <div class='search' id='search'>
-        <table class='search-table' id='searchTable'>
-          <thead class='search-thead'>
-            <tr class='search-tr'>
-              <td class='search-td'></td>
-            </tr>
-          </thead>
-          <tbody class='search-tbody'>
-            <tr class='search-tr'>
-              <td class='search-td'>
-                <button onclick='llenar(".$mostrar['idCliente'].")' class='textoC' id='llenarD'>".$mostrar['nombreCliente']." ".$mostrar['apCliente']." ".$mostrar['amCliente']."</button>
-              </td>              
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-        ";
-    }
-  }  
+            <option value='".$mostrar["nombreCliente"]."' onclick='enviar(".$mostrar['idCliente'].")'>".$mostrar['nombreCliente']." ".$mostrar['apCliente']." ".$mostrar['amCliente']."</option>";
+            
+           }
+    $salida.="
+          </datalist>";    
   
-} else { 
-  $salida.="
+  } else {
+    $salida.="<label class='error'> NO SE ENCUENTRA EL REGISTRO </label>";
 
-  <div class='search' id='search'>
-        <table class='search-table' id='searchTable'>
-          <thead class='search-thead'>
-            <tr class='search-tr'>
-              <td class='search-td'></td>
-            </tr>
-          </thead>
-          <tbody class='search-tbody'>
-            <tr class='search-tr'>
-              <td class='search-td'>
-                <a class='textoC'>NO SE ENCUENTRA EL CLIENTE</a>
-              </td>              
-            </tr>
-          </tbody>
-        </table>
-      </div>
-            ";
 }
 
 echo $salida;
 $conexion->close();
+
 
 ?>

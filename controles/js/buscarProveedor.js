@@ -2,13 +2,13 @@
 
 function buscar_datos(consulta){
   $.ajax({
-    url: '../../modelo/ventas/buscadorCliente.php',
+    url: '../../modelo/producto/buscarProveedor.php',
     type: 'POST',
     dataType: 'html',
     data: {consulta: consulta},
   })
   .done(function(respuesta){
-    $("#clienteDATOS").html(respuesta);
+    $("#proveedorDATOS").html(respuesta);
     
   })
   .fail(function(){
@@ -16,7 +16,7 @@ function buscar_datos(consulta){
   })
 }
 
-$(document).on('keyup', '#buscadorCliente', function(){
+$(document).on('keyup', '#buscadorProveedor', function(){
   var valor = $(this).val();
   if(valor != ""){
     buscar_datos(valor);
@@ -24,9 +24,9 @@ $(document).on('keyup', '#buscadorCliente', function(){
     buscar_datos();
   }
 });
+  function enviar(idProveedor) {
+  d=idProveedor;
+  
+  $('#idProveedorRP').val(d);
 
-function enviar(idClienteV){
-  d=idClienteV.split('||');
-
-$('#idClienteV').val(d);
 }

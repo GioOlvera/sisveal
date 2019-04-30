@@ -11,7 +11,7 @@ if($varsesion == null || $varsesion = ''){
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Registro Usuario</title>
+	<title>Pedido</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" >
 	<meta http-equiv="X-UA-Compatible" content="le-edge">
@@ -35,9 +35,13 @@ if($varsesion == null || $varsesion = ''){
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script src="../../controles/js/ventaFuncion.js"></script>	
+	<script src="../../controles/js/pedidoFuncion.js"></script>	
 	<script src="../../controles/js/buscarCliente.js"></script>
 	<script src="../../controles/js/tablaVenta.js"></script>	
+
+	<script src="../../controles/js/Estado.js"></script>
+	<script src="../../controles/js/Municipio.js"></script>
+	<script src="../../controles/js/Localidad.js"></script> 
 	
 </head>
 
@@ -154,14 +158,14 @@ if($varsesion == null || $varsesion = ''){
 							<label>&nbsp;NO<input type="radio" class="txt-cliente" id="bloqueo" value="rblocal" name="intereses" onclick="local()"/></label>
 						</td>
 						<td width="300" align="center">
-							<input type="submit" class="bot-reg" id="nuevo_cliente" name="" value="Nuevo Cliente" disabled>
+							<input type="submit" class="bot-reg" id="nuevo_cliente" name="" value="Nuevo Cliente" >
 						</td>
 						<td width="100">
 							<label class="lb-cliente">Buscar Cliente:</label>
 						</td>
 						<td width="337" style="position: absolute;">
 							<input type="hidden" class='txt-cliente' id='idClienteV' >
-							<input class='txt-cliente' id='buscadorCliente' list='browsers' name='browser' placeholder='Buscar...' disabled>
+							<input class='txt-cliente' id='buscadorCliente' list='browsers' name='browser' placeholder='Buscar...' >
 							<div id="clienteDATOS">
 						</td>						
 					</tr>
@@ -170,7 +174,7 @@ if($varsesion == null || $varsesion = ''){
 							<label class="lb-cliente">*Nombre Completo:</label>
 						</td>
 						<td width="300">
-							<input type="text" class="txt-cliente" id="buscadorCliente" name="nombreComp" placeholder="" disabled>
+							<input type="text" class="txt-cliente" id="buscadorCliente" name="" placeholder="" >
 						</td>
 						<td width="100">
 							<label class="lb-cliente">*Fecha:</label>
@@ -187,49 +191,104 @@ if($varsesion == null || $varsesion = ''){
 					</tr>
 				</table>
 
-		<br><br>
+				<br><br>
 
-	    <h2 class="lb-cliente-t" align="center">Registrar Venta</h2>
+	   			<h2 class="lb-cliente-t" align="center">Datos Dirección</h2>
 
-			<table width="1000" height="100">
-				
-				<tr>
-					<td width="100">
-						<label class="lb-cliente">*Nombre del Producto:</label><br>
-					</td>	
-					<td width="250">
-						<input type="text" class="txt-cliente" id="producto" name="" placeholder="" required="required">
-					</td>
-					<td width="130">
-						<label class="lb-cliente">*Cantidad:</label>
-					</td>
-					<td width="250">
-						<input type="number" class="txt-cliente" id="cantidad" name="" placeholder="" required="required">
-					</td>
-				</tr>
+				<table width="1000" height="100">
 
-				<tr>
-					<td width="100">
-						<label class="lb-cliente">*Precio:</label>
-					</td>
-					<td width="250">
-						<input type="number" class="txt-cliente" id="precio" name="" required="required">
-					</td>
-					<td width="130" align="center" colspan="1">
-						<input type="button" class="bot-reg" id="" name="" onclick="agregarProducto();" value="Agregar">
-					</td>
-					
-				</tr>
-				
-			</table>
+					<tr>
+						<td width="135">
+							<label class="lb-cliente">*Código Postal:</label>
+						</td>	
+						<td width="400">
+							<input type="text" class="txt-cliente" id="txt-buscador" placeholder="74100">
+						</td>
+						<td width="135">
+							<label class="lb-cliente">*Estado:</label>
+						</td>
+						<td width="400">
+							<div id="EstadoDATOS">
+						</td>
+					</tr>
 
-			
+					<tr>
+						<td width="80">
+							<label class="lb-cliente">*Municipio:</label>
+						</td>
+						<td>
+							<div id="MunicipioDATOS">
+						</td>
+						<td width="80">
+							<label class="lb-cliente">*Localidad:</label>
+						</td>
+						<td>
+							<div id="LocalidadDATOS">
+						</td>
+					</tr>
+				</table>
 
-			<h2 class="lb-cliente-t" align="center">Lista</h2>
+				<table width="1000" height="100">
+					<tr>
+						<td>
+							<label class="lb-cliente">*Calle:</label>
+						</td>
+						<td width="500">
+							<input type="text" class="txt-cliente" id="calle" placeholder="Benito J." >
+						</td>
+						<td>
+							<label class="lb-cliente">*No° Exterior:</label>
+						</td>
+						<td>		
+							<input type="text" class="txt-cliente" id="no_exterior" placeholder="20">
+						</td>
+						<td>
+							<label class="lb-cliente">*No° Interior:</label>
+						</td>
+						<td>
+							<input type="text" class="txt-cliente" id="no_interior" placeholder="10" >
+						</td>
+					</tr>			
+				</table>
 
-			<table >
-				<tr>
-					
+				<br><br>
+
+	    		<h2 class="lb-cliente-t" align="center">Registrar Pedido</h2>
+
+	    		<table width="1000" height="100">	    			
+	    			<tr>
+	    				<td width="100">
+	    					<label class="lb-cliente">*Nombre del Producto:</label><br>
+	    				</td>	
+	    				<td width="250">
+	    					<input type="text" class="txt-cliente" id="producto" name="" placeholder="" required="required">
+	    				</td>
+	    				<td width="130">
+	    					<label class="lb-cliente">*Cantidad:</label>
+	    				</td>
+	    				<td width="250">
+	    					<input type="number" class="txt-cliente" id="cantidad" name="" placeholder="" required="required">
+	    				</td>
+	    			</tr>
+	    			<tr>
+	    				<td width="100">
+	    					<label class="lb-cliente">*Precio:</label>
+	    				</td>
+	    				<td width="250">
+	    					<input type="number" class="txt-cliente" id="precio" name="" required="required">
+	    				</td>
+	    				<td width="130" align="center" colspan="1">
+	    					<input type="button" class="bot-reg" id="" name="" onclick="agregarProducto();" value="Agregar">
+	    				</td>
+	    			</tr>
+	    		</table>
+
+				<br><br>
+
+				<h2 class="lb-cliente-t" align="center">Lista</h2>
+
+				<table >
+					<tr>					
 						<td>
 							<div id="main-container" >
 								<table class="table">
@@ -256,41 +315,41 @@ if($varsesion == null || $varsesion = ''){
 							<div id="conTotal">
 
 								<h3 class="lb-cliente" id="total">Total:</h3>
-								
+
 							</div>
 							<br><br><br>
 							<input type="submit" class="bot-reg" id="Finalizar" name="" value="Finalizar Venta">
-						</td>
-					
-				</tr>
-			</table>
-		</form>
-						
+						</td>					
+					</tr>
+				</table>
+
+			</form>						
 		</div>
-	</form>
-	<script src="../../controles/js/ventaFuncion.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
 
-				$('#Finalizar').click(function(){
-					buscadorCliente=$('#buscadorCliente').val();
-					producto=$('#producto').val();
-					cantidad=$('#cantidad').val();
-					precio=$('#precio').val();
-					fecha=$('#fecha').val();
-					venta(buscadorCliente,producto,cantidad,precio,fecha;	
 
-					if ($('#buscadorCliente').val()==""){
-						alertify.alert("Debe Ingresar El Nombre del Cliente");
-						return false;
-					}else if($('#fecha').val()=="dd/mm/aaaa"){
-						alertify.alert("Debe de Ingresar La Fecha");
-						return false;
-					}
-			});
+<script src="../../controles/js/ventaFuncion.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
 
+		$('#Finalizar').click(function(){
+			buscadorCliente=$('#buscadorCliente').val();
+			producto=$('#producto').val();
+			cantidad=$('#cantidad').val();
+			precio=$('#precio').val();
+			fecha=$('#fecha').val();
+			pedido(buscadorCliente,producto,cantidad,precio,fecha;	
+
+			if ($('#buscadorCliente').val()==""){
+				alertify.alert("Debe Ingresar El Nombre del Cliente");
+				return false;
+			}else if($('#fecha').val()=="dd/mm/aaaa"){
+				alertify.alert("Debe de Ingresar La Fecha");
+				return false;
+			}
 		});
-	</script>
+
+	});
+</script>
 
 	<!--TABLA ARRAY-->
 <script type="text/javascript">
@@ -349,10 +408,11 @@ function mostrarListado(){
             
           '</tr>';
 
-       total = total + producto[i].subTot;
-    document.getElementById("total").innerHTML = "Total: $"+total;
-         
+       
+     total = total + producto[i].subTot;    
   }
+  
+    document.getElementById("total").innerHTML = "Total: $"+total;
 
 //yoto = producto.length;
 //document.getElementById("test").value = yoto;
