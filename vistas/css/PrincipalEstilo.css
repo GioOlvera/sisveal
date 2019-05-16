@@ -80,6 +80,10 @@ div#menu-horizontal{
 	text-decoration: none;	
 	list-style-type: none;
 }
+
+a.Formulario{
+	font-weight: bold;
+}
 /*-----------------IMAGENES---------------------*/
 /*-----------------IMAGENES---------------------*/
 div.mninicio{

@@ -18,7 +18,10 @@ body{
 
 #main-container{
 	margin: 50px auto;
-	width: 1130px;
+	width: 1170px;
+
+	height: 600px;
+  	overflow: scroll;
 }
 
 #main-container2{
@@ -48,6 +51,14 @@ body{
 	font:bold 17px sans-serif;
 
 }
+.td1 {
+	padding: 30px;
+	font:bold 17px sans-serif;
+}
+
+#idCliente {
+	width: -110px;
+}
 
 thead{
 	background-color: dodgerblue;
@@ -62,6 +73,11 @@ thead{
 .tr:hover .td{
 	background-color: dodgerblue;
 	color: white;
+}
+
+.tr:hover .td1{
+	background-color: crimson;
+	color: crimson;
 }
 
 /*-------ESTILO DE BOTONES-----*/

@@ -24,7 +24,6 @@ if($varsesion == null || $varsesion = ''){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<script src="../../controles/librerias/jquery-3.3.1.js"></script>
-	<script src="../../controles/librerias/quey.js"></script>
 	<script src="../../controles/librerias/jquery.min.js"></script>	
 	<!--<script src="../../controles/librerias/bootstrap.min.js"></script>-->
 	<script src="../../controles/librerias/alertifyjs/alertify.js"></script> 
@@ -43,98 +42,7 @@ if($varsesion == null || $varsesion = ''){
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
-		<nav class="nav">
-			<ul class="mnul" id="n-bar">
-				<li class="mnli"><img src="../img/inicio.png" class="icon-clie"><a href="../InicioPrincipal.php" id="inicio" class="active">INICIO</a>
-				</li>
-
-				<li class="mnli"><img src="../img/cliente.png" class="icon-clie"><a href="#Clientes" id="" class="active">CLIENTES</a> 
-					<ul class="subClientes" id="subClientes">
-						<li class="subClientesli"><a href="../clientes/clientesRegistro.php" id="FormularioClie" class="activeClie">Registrar Cliente</a></li>
-						<li class="subClientesli"><a href="../clientes/clientesHabilitados.php" id="HabilitadosClie" class="activeClie">Clientes Habilitados</a></li>
-						<li class="subClientesli"><a href="../clientes/clientesDeshabilitados.php" id="DeshabilitadosClie" class="activeClie">Clientes Deshabilitados</a></li>
-					</ul>
-
-				</li>
-
-				<li class="mnli"><img src="../img/Prov.png" class="icon-clie"><a href="#" id="Estado2" class="active">PROVEEDORES</a> 
-					<ul class="subProve" id="subProve">
-
-						<li class="subProveli"><a href="proveedoresRegistro.php" id="FormularioProv" class="activeProve">Registrar Proveedor</a>
-						</li>
-						<li class="subProveli"><a href="proveedoresHabilitados.php" id="DeshabilitadosProv" class="activeProve">Proveedores Habilitados</a>
-						</li>
-						<li class="subProveli"><a href="#Estado-Proveedor" id="DeshabilitadosProv" class="activeProve">Proveedores Deshabilitados</a>
-						</li>
-					</ul>
-				</li>
-				<li class="mnli"><img src="../img/trabajadores.png" class="icon-clie"><a href="#Trabajadores" id="Trabajadores2" class="active">TRABAJADORES</a>
-					<ul class="subTraba" id="subClientes">
-						<li class="subTrabali"><a href="TrabajadoresPrincipales-Registro.php" id="FormularioTrab" class="activeTraba">Registrar Trabajador</a></li>
-						<li class="subTrabali"><a href="TrabajadoresPrincipales-Habilitados.php" id="HabilitadosTrab" class="activeTraba">Trabajadores Habilitados</a></li>
-						<li class="subTrabali"><a href="TrabajadoresPrincipales-Deshabilitados.php" id="DeshabilitadosTrab" class="activeTraba">Trabajadores Deshabilitados</a></li>
-					</ul>
-
-				</li>
-				<li class="mnli"><img src="../img/usuario.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">USUARIOS</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">Registrar Usuaio</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">Usuarios Habilitados</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">Usuarios Deshabilitados</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/venta.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">VENTAS</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">Realizar venta</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">Pedido</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/almacen.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">ALMACEN</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/estado.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">ESTADO</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/prod.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">PRODUCTO</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/historial.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">HISTORIAL</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/ticket.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">TICKET</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/Ayuda.png" class="icon-clie"><a href="#" class="active">AYUDA</a></li>
-				<form action="CerrarSesion.php" method="POST">
-					<li class="mnli" ><a href="../../cerrar.php" class="activeUsuario1"><img src="../img/cerrar.png" class="icon-clie" >CERRAR SESIÓN</a> 
-						<a class="activeUsuario2" href="../../cerrar.php">Usuario: <?php echo $_SESSION['usuario']; ?></a>
-					</li>
-				</form>
-			</ul>
-		</nav>
+		<?php include "../includes/nav.php" ?>
 	</header>	
 </div>			
 			<!--------FORMULARIO-------->	
@@ -148,7 +56,7 @@ if($varsesion == null || $varsesion = ''){
 							<label class="lb-cliente">*Nombre:</label>
 						</td>
 						<td>
-							<input type="text" class="txt-cliente" id="nombreProv" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]+" >
+							<input type="text" class="txt-cliente" id="nombreProv" pattern="[A-Za-záéíóúÁÉÍÓÚñÑZ0-9]+" >
 						</td>
 						<td width="135">
 							<label class="lb-cliente">*Email</label>
@@ -162,7 +70,7 @@ if($varsesion == null || $varsesion = ''){
 							<label class="lb-cliente">RFC:</label>
 						</td>
 						<td>
-							<input type="text" class="txt-cliente" id="rfcProv" placeholder="R0DD970213" pattern="[A-Z0-9]+">
+							<input type="text" class="txt-cliente" id="rfcProv" placeholder="R0DD970213" maxlength="10" pattern="[A-Z0-9]+" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
 						</td>
 						<td width="80">
 							<label class="lb-cliente">*Teléfono:</label>
@@ -184,7 +92,7 @@ if($varsesion == null || $varsesion = ''){
 							<label class="lb-cliente">*Código Postal:</label>
 						</td>	
 						<td width="400">
-							<input type="text" class="txt-cliente" id="txt-buscador" placeholder="74100" >
+							<input type="text" class="txt-cliente" id="txt-buscador" placeholder="74100" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" maxlength="6">
 						</td>
 						<td width="135">
 							<label class="lb-cliente">*Estado:</label>
@@ -271,9 +179,6 @@ if($varsesion == null || $varsesion = ''){
 						return false;
 					}else if($('#emailProv').val()==""){
 						alertify.alert("Debes Ingresar el Correo Eléctronico");
-						return false;
-					}else if($('#rfcProv').val()==""){
-						alertify.alert("Debes Ingresar el RFC");
 						return false;
 					}else if($('#telefonoProv').val()==""){
 						alertify.alert("Debes Ingresar un No° Teléfono");

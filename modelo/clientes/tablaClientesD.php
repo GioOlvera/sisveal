@@ -3,21 +3,21 @@
 
 function habilitado(idCliente) {
 	
-	alertify.confirm('Deshabilitar Cliente', '¿Esta seguro de deshabilitar cliente', 
+	alertify.confirm('Habilitar Cliente', '¿Esta seguro de Habilitar cliente?', 
 		function(){ habilitarCliente(idCliente) 
 	}, function(){ alertify.error('Se cancelo')});
 	
 }
 
 	
-/*
+
 function detalles(idCliente) {
 
 	
-	 var doc="InformacionClientes.php?idCliente="+idCliente;
+	 var doc="informacionCliente.php?idCliente="+idCliente;
          window.location=doc;
 	
-}*/
+}
 
 
 </script>

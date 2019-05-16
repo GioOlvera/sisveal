@@ -37,9 +37,8 @@ if($varsesion == null || $varsesion = ''){
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script src="../../modelo/proveedores/tablaProveedoresH.php"></script>
 	<script src="../../controles/js/tablaProveedoresH.js"></script>
-	<script src="../../controles/js/ProveedorFuncion.js"></script>
+	<script src="../../controles/js/proveedorFuncion.js"></script>
  
 </head>
 
@@ -48,97 +47,7 @@ if($varsesion == null || $varsesion = ''){
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
-		<nav class="nav">
-			<ul class="mnul" id="n-bar">
-				<li class="mnli"><img src="../img/inicio.png" class="icon-clie"><a href="../InicioPrincipal.php" id="inicio" class="active">INICIO</a>
-				</li>
-
-				<li class="mnli"><img src="../img/cliente.png" class="icon-clie"><a href="#Clientes" id="" class="active">CLIENTES</a> 
-					<ul class="subClientes" id="subClientes">
-						<li class="subClientesli"><a href="../clientes/clientesRegistro.php" id="FormularioClie" class="activeClie">Registrar Cliente</a></li>
-						<li class="subClientesli"><a href="../clientes/clientesHabilitados.php" id="HabilitadosClie" class="activeClie">Clientes Habilitados</a></li>
-						<li class="subClientesli"><a href="../clientes/clientesDeshabilitados.php" id="DeshabilitadosClie" class="activeClie">Clientes Deshabilitados</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/Prov.png" class="icon-clie"><a href="#" id="Estado2" class="active">PROVEEDORES</a> 
-					<ul class="subProve" id="subProve">
-						<li class="subProveli"><a href="proveedoresRegistro.php" id="FormularioProv" class="activeProve">Registrar Proveedor</a>
-						</li>
-						<li class="subProveli"><a href="proveedoresHabilitados.php" id="DeshabilitadosProv" class="activeProve">Proveedores Habilitados</a>
-						</li>
-						<li class="subProveli"><a href="proveedoresDeshabilitados.php" id="DeshabilitadosProv" class="activeProve">Proveedores Deshabilitados</a>
-						</li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/trabajadores.png" class="icon-clie"><a href="#Trabajadores" id="Trabajadores2" class="active">TRABAJADORES</a>
-					<ul class="subTraba" id="subClientes">
-						<li class="subTrabali"><a href="TrabajadoresPrincipales-Registro.php" id="FormularioTrab" class="activeTraba">Registrar Trabajador</a></li>
-						<li class="subTrabali"><a href="TrabajadoresPrincipales-Habilitados.php" id="HabilitadosTrab" class="activeTraba">Trabajadores Habilitados</a></li>
-						<li class="subTrabali"><a href="TrabajadoresPrincipales-Deshabilitados.php" id="DeshabilitadosTrab" class="activeTraba">Trabajadores Deshabilitados</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/usuario.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">USUARIOS</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">Registrar Usuaio</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">Usuarios Habilitados</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">Usuarios Deshabilitados</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/venta.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">VENTAS</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">Realizar venta</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">Pedido</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/almacen.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">ALMACEN</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/estado.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">ESTADO</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/prod.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">PRODUCTO</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/historial.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">HISTORIAL</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/ticket.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">TICKET</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/Ayuda.png" class="icon-clie"><a href="#" class="active">AYUDA</a></li>
-				<form action="CerrarSesion.php" method="POST">
-					<li class="mnli" ><a href="../../modelo/cerrar.php" class="activeUsuario1"><img src="../img/cerrar.png" class="icon-clie" >CERRAR SESIÓN</a> 
-						<a class="activeUsuario2" href="CerrarSesion.php">Usuario: <?php echo $_SESSION['usuario']; ?></a>
-					</li>
-				</form>
-			</ul>
-		</nav>
+		<?php include "../includes/nav.php" ?>
 	</header>	
 </div>	
 
@@ -182,42 +91,35 @@ if($varsesion == null || $varsesion = ''){
 
 			<div class="modal-body">
 											
-				<form class="form-horizontal" id="formUser">
-
+				<form class="form-horizontal" id="myformularioP">
+					<input type="hidden" id="idProveedorP" name="" class="form-control">
 					<div class="form-group">
-
 						<label for="" class="control-label col-xs-5">*Nombre:</label>
 						<div class="col-xs-5">							
-							<input id="nombreClienteE" name="" type="text" class="form-control" placeholder="Ingrese sus Nombres">
+							<input id="nombreP" name="" type="text" class="form-control" placeholder="Ingrese sus Nombres" maxlength="30">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="apCliente" class="control-label col-xs-5">*Apellido Paterno:</label>
+						<label for="" class="control-label col-xs-5">*Email:</label>
 						<div class="col-xs-5">
-							<input id="apCliente" name=""  type="text" class="form-control" placeholder="Ingrese sus Apellidos">
+							<input id="emailP" name=""  type="text" class="form-control" placeholder="Ingrese sus Apellidos" maxlength="30">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="amCliente" class="control-label col-xs-5">*Apellido Materno:</label>
+						<label for="" class="control-label col-xs-5">RFC:</label>
 						<div class="col-xs-5">
-							<input id="amCliente" name=""  type="password" class="form-control" placeholder="Ingrese sus Apellidos">
+							<input id="rfcP" name=""  type="text" class="form-control" placeholder="Ingrese sus Apellidos" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" maxlength="10">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="telefonoCliente" class="control-label col-xs-5">*Teléfono:</label>
+						<label for="" class="control-label col-xs-5">*Teléfono:</label>
 						<div class="col-xs-5">
-							<input id="telefonoCliente" name=""  type="password" class="form-control" placeholder="Ingrese sus Apellidos">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="tipo" class="control-label col-xs-5">*Código Postal:</label>
-						<div class="col-xs-5">
-							<input id="txt-buscador" name=""  type="password" class="form-control" placeholder="Ingrese sus Apellidos">
+							<input id="telefonoP" name=""  type="text" class="form-control" placeholder="Ingrese sus Apellidos" maxlength="12">
 						</div>
 					</div>
 					<div class="modal-footer">  
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 						<input id="actualizar" type="submit" class="btn btn-success" value="Actualizar">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>						
 					</div>
 					
 				</form>
@@ -227,11 +129,45 @@ if($varsesion == null || $varsesion = ''){
 		</div><!-- /.modal-content -->
 	</div>
 </div>
-
+<script src="../../controles/js/proveedorFuncion.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 
 $('#datos').load('../../modelo/Proveedores/tablaProveedoresH.php');
+
+$('#actualizar').click(function(){
+		idProveedorP=$('#idProveedorP').val();
+		nombreP=$('#nombreP').val();
+		emailP=$('#emailP').val();
+		rfcP=$('#rfcP').val();
+		telefonoP=$('#telefonoP').val();
+		/*cp=$('#txt-buscadorE').val();
+		cbxestado=$('#cbxestado').val();
+		cbxmunicipio=$('#cbxmunicipio').val();
+		cbxlocalidad=$('#cbxlocalidad').val();
+		calle=$('#calle').val();
+		no_exterior=$('#no_exterior').val();
+		no_interior=$('#no_interior').val();*/
+		actualizarProveedor(idProveedorP,nombreP,emailP,rfcP,telefonoP);
+
+		/*
+		if($('#nombreClienteE').val()==""){
+			alertify.alert("Debes Ingresar el Código Postal");
+			return false;
+		}
+		else if($('#apClienteE').val()=="Selecciona el Estado"){
+			alertify.alert("Debes Seleccionar el Estado");
+			return false;
+		}else if($('#amClienteE').val()=="Selecciona el Municipio"){
+			alertify.alert("Debes Seleccionar el Municipio");
+			return false;
+		}else if($('#telefonoClienteE').val()=="Selecciona el Localidad"){
+			alertify.alert("Debes Seleccionar la Localidad");
+			return false;
+		}*/
+
+	
+	});
 
 
 });

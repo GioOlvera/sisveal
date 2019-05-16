@@ -11,9 +11,15 @@ function deshabilitado(idCliente) {
 	
 function modificar(idCliente) {
 	
-	
+	var idCliente=idCliente;
+	//var idCliente = idCliente;
+	//document.write(idCliente);
 	$('#idClienteE').val(idCliente);
-
+	//$('#idClienteE2').val(string);
+	//location.href="?idClienteE="+idCliente;
+	//window.location.href = window.location.href + "idClienteE" + idCliente;
+	//window.location.href = window.location.href + "?w1=" + jsVar1 + "&w2=" + jsVar2;
+	//window.location.href='clientesHabilitados.php?date='+$idCliente;
 }
 
 function eliminar(idCliente) {
@@ -21,6 +27,14 @@ function eliminar(idCliente) {
 	alertify.confirm('Eliminar Cliente', '¿Esta seguro de eliminar el registro?', 
 		function(){ eliminarCliente(idCliente) 
 	}, function(){ alertify.error('Se cancelo')});
+	
+}
+
+function detalles(idCliente) {
+
+	
+	 var doc="informacionCliente.php?idCliente="+idCliente;
+         window.location=doc;
 	
 }
 
@@ -48,7 +62,7 @@ if ($resultado ->num_rows > 0)  {
 	
 	$salida = "<div id='main-container' > 
 	<table class='table'>
-				<thead>
+			<thead>
 				<tr class='tr'>
 					<th class='th'>ID Cliente</th>
 					<th class='th'>Nombre</th>
@@ -57,17 +71,17 @@ if ($resultado ->num_rows > 0)  {
 					<th class='th'>Telèfono</th>
 					<th class='th'>Estado</th>
 					<th class='th'>Actualizar</th>
-					<th class='th'>Eliminar</th>
+					<th class='th'>Eliminarlos</th>
 					<th class='th'>Información</th>
 				</tr>
 			</thead>
 			<tbody style='cursor: pointer;'>";
 
-	while($mostrar = $resultado->fetch_assoc() ){		
+		
+		while($mostrar = $resultado->fetch_assoc() ){		
 
 		if($mostrar['estadoCliente']=='1'){		
-		
-					
+							
 		
 		$salida.="		
 
@@ -83,19 +97,17 @@ if ($resultado ->num_rows > 0)  {
 					<button href='#' onclick='deshabilitado(".$mostrar['idCliente'].")' class='btn-estado'><span class='glyphicon glyphicon-eye-close'></span> Deshabilitar</button>					
 				</td>
 				<td class='td'>
-					<button  href='#' onclick='modificar(".$mostrar['idCliente'].")'  data-toggle='modal' data-target='#modaledi' class='btn-editar'><span class='glyphicon glyphicon-edit'></span> Editar</button>				
+					<button  href='#' onclick='modificar(".$mostrar['idCliente'].")' data-toggle='modal' data-target='#modaledi' class='btn-editar'><span class='glyphicon glyphicon-edit'></span> Editar</button>				
 				</td>
 				<td class='td'>
-					<button href='#' onclick='eliminar(".$mostrar['idCliente'].")' class='btn-borrar'><span class='glyphicon glyphicon-remove'></span> Bra</button>					
+					<button href='#' onclick='eliminar(".$mostrar['idCliente'].")' class='btn-borrar'><span class='glyphicon glyphicon-remove'></span> Borrar</button>					
 				</td>
 				<td class='td'>
 					<button href='#' onclick='detalles(".$mostrar['idCliente'].")' class='btn-detalles'><span class='glyphicon glyphicon-question-sign'></span> Detalles</button>					
 				</td>
 			
-			</tr>"
-
-			;
-
+			</tr>";
+			
 		}
 		
 	}
@@ -103,7 +115,8 @@ if ($resultado ->num_rows > 0)  {
 		</tbody>
 
 		</table>
-		</div>";	
+		</div>";
+		
 	
 	} else {
 		$salida.="<label class='error'> NO SE ENCUENTRA EL REGISTRO </label>";

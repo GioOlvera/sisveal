@@ -11,13 +11,13 @@ function habilitado(idProveedor) {
 	
 }
 
-/*function detalles(idProveedor) {
+function detalles(idProveedor) {
 
 	
-	 var doc="InformacionProveedorFi.php?idProveedor="+idProveedor;
+	 var doc="informacionProveedor.php?idProveedor="+idProveedor;
          window.location=doc;
 	
-}*/
+}
 
 </script>
 <?php

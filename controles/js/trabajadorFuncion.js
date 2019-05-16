@@ -33,18 +33,18 @@ function agregardatosT(nombreTrab,apTrab,amTrab,telefonoTrab,edadTrab,fechaTrab,
 	});
 }
 
-function deshabilitarProv(idTrabajadors){
+function deshabilitarTrab(idTrabajador){
 
- cadena="idTrabajadors=" + idTrabajadors;
+ cadena="idTrabajador=" + idTrabajador;
 
  $.ajax({
 type:"POST",
-url:"../../modelo/proveedores/deshabilitarProveedores.php",
+url:"../../modelo/trabajadores/deshabilitarTrabajador.php",
 data:cadena,
 success: function(r){
 	if (r==1) {				
 		alertify.success("Registro deshabilitado con exito");
-		$('#datos').load('../../modelo/proveedores/tablaProveedoresH.php');
+		$('#datos').load('../../modelo/trabajadores/tablaTrabajadoresH.php');
 		}else{
 			alertify.error("Registro no deshabilitado");		
 		}
@@ -54,40 +54,64 @@ success: function(r){
 }
 
 
+function actualizarTrabajador(idTrabajadorT,cargo,telefonoA,edadA){ 
+
+    cadena="idTrabajadorT=" + idTrabajadorT +
+    "&cargo=" + cargo + 
+	"&telefonoA=" + telefonoA + 
+	"&edadA=" + edadA;
+
+    $.ajax({
+		type:"POST",
+		url:"../../modelo/trabajadores/actualizarTrabjador.php",
+		data:cadena,
+		success: function(r){
+			if (r==1) {				
+				//$('#tabla').load('interfaces/tabla.php');
+				alertify.success("Datos Guardados con exito");
+				$('#myformularioT')[0].reset();
+				$('#datos').load('../../modelo/trabajadores/tablaTrabajadoresH.php');
+			}else{
+				alertify.error("Datos no Guardados");	
+			}
+
+		}
+	});
+}
 
 
-function eliminarProv(idProveedor){
+function eliminarTrab(idTrabajador){
 
- cadena="idProveedor=" + idProveedor;
+ cadena="idTrabajador=" + idTrabajador;
 
  $.ajax({
 type:"POST",
-url:"../../modelo/proveedores/eliminarProveedores.php",
+url:"../../modelo/trabajadores/eliminarTrabajador.php",
 data:cadena,
 success: function(r){
 	if (r==1) {		
 		alertify.error("Registro no eliminado");	
 		}else{
 		alertify.success("Registro eliminado con exito");
-		$('#datos').load('../../modelo/proveedores/tablaProveedoresH.php');
+		$('#datos').load('../../modelo/trabajadores/tablaTrabajadoresH.php');
 		}
 
 	}
 });
 }
 
-function habilitarProv(idProveedor){
+function habilitarTrab(idTrabajador){
 
- cadena="idProveedor=" + idProveedor;
+ cadena="idTrabajador=" + idTrabajador;
 
  $.ajax({
 type:"POST",
-url:"../../modelo/proveedores/habilitarProveedores.php",
+url:"../../modelo/trabajadores/habilitarTrabajador.php",
 data:cadena,
 success: function(r){
 	if (r==1) {				
 		alertify.success("Registro Habilitado con exito");
-		$('#datosD').load('../../modelo/proveedores/tablaProveedoresD.php');
+		$('#datosD').load('../../modelo/trabajadores/tablaTrabajadoresD.php');
 		}else{
 			alertify.error("Registro no Habilitado");		
 		}

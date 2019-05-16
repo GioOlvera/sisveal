@@ -1,6 +1,6 @@
-  $(buscar_datos());
+  $(buscar_datosEst());
 
-function buscar_datos(consulta){
+function buscar_datosEst(consulta){
   $.ajax({
     url: '../../modelo/direccion/Estado.php',
     type: 'POST',
@@ -18,9 +18,9 @@ function buscar_datos(consulta){
 $(document).on('keyup', '#txt-buscador', function(){
   var valor = $(this).val();
   if(valor != ""){
-    buscar_datos(valor);
+    buscar_datosEst(valor);
   }else {
-    buscar_datos();
+    buscar_datosEst();
   }
 });
 

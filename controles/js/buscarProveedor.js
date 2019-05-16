@@ -1,6 +1,6 @@
-  $(buscar_datos());
+  $(buscar_datosP());
 
-function buscar_datos(consulta){
+function buscar_datosP(consulta){
   $.ajax({
     url: '../../modelo/producto/buscarProveedor.php',
     type: 'POST',
@@ -19,14 +19,8 @@ function buscar_datos(consulta){
 $(document).on('keyup', '#buscadorProveedor', function(){
   var valor = $(this).val();
   if(valor != ""){
-    buscar_datos(valor);
+    buscar_datosP(valor);
   }else {
-    buscar_datos();
+    buscar_datosP();
   }
 });
-  function enviar(idProveedor) {
-  d=idProveedor;
-  
-  $('#idProveedorRP').val(d);
-
-}

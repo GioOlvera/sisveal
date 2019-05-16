@@ -1,11 +1,12 @@
 <script type="text/javascript">
-  function enviar(idCliente) {
-  d=idCliente;
-  
-  $('#idClienteV').val(d);
-
-}
+$(function(){
+    $('#buscadorCliente').change(function(){
+        var abc = $("#browsers option[value='" + $('#buscadorCliente').val() + "']").attr('data-id');
+        $('#idClienteV').val(abc);
+    });
+});
 </script>
+
 <?php
 header("Content-Type: text/html;charset=utf-8");
 require_once "../conexion/conexion.php";
@@ -34,12 +35,14 @@ if ($resultado ->num_rows > 0)  {
            while($mostrar = $resultado->fetch_assoc()){
             $salida.="
 
-            <option value='".$mostrar["nombreCliente"]."' onclick='enviar(".$mostrar['idCliente'].")'>".$mostrar['nombreCliente']." ".$mostrar['apCliente']." ".$mostrar['amCliente']."</option>";
-            
+            <option value='".$mostrar["nombreCliente"]."' data-id='".$mostrar['idCliente']."'>".$mostrar['nombreCliente']." ".$mostrar['apCliente']." ".$mostrar['amCliente']."</option>";
+
+            /*$query2 = "SELECT * FROM direccioncliente ORDER BY idCliente";
+          $query2 = "SELECT idCliente, cp, estado, municipio, localidad, calle, no_exterior, no_interior FROM direccioncliente WHERE idCliente LIKE '%".$mostrar['idCliente']."%'";*/
            }
     $salida.="
-          </datalist>";    
-  
+          </datalist>";   
+
   } else {
     $salida.="<label class='error'> NO SE ENCUENTRA EL REGISTRO </label>";
 

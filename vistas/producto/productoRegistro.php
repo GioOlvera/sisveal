@@ -34,8 +34,8 @@ if($varsesion == null || $varsesion = ''){
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script src="../../controles/js/ventaFuncion.js"></script>	
-	<script src="../../controles/js/buscarProveedor.js"></script>	
+	<script src="../../controles/js/productoFuncion.js"></script>	
+	<script src="../../controles/js/buscarProveedor.js"></script>
 	
 </head>
 
@@ -44,107 +44,18 @@ if($varsesion == null || $varsesion = ''){
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
-		<nav class="nav">
-			<ul class="mnul" id="n-bar">
-				<li class="mnli"><img src="../img/inicio.png" class="icon-clie"><a href="../InicioPrincipal.php" id="inicio" class="active">INICIO</a>
-				</li>
-
-				<li class="mnli"><img src="../img/cliente.png" class="icon-clie"><a href="#Clientes" id="" class="active">CLIENTES</a> 
-					<ul class="subClientes" id="subClientes">
-						<li class="subClientesli"><a href="../clientes/clientesRegistro.php" id="FormularioClie" class="activeClie">Registrar Cliente</a></li>
-						<li class="subClientesli"><a href="../clientes/clientesHabilitados.php" id="HabilitadosClie" class="activeClie">Clientes Habilitados</a></li>
-						<li class="subClientesli"><a href="../clientes/clientesDeshabilitados.php" id="DeshabilitadosClie" class="activeClie">Clientes Deshabilitados</a></li>
-					</ul>
-
-				</li>
-
-				<li class="mnli"><img src="../img/Prov.png" class="icon-clie"><a href="#" id="Estado2" class="active">PROVEEDORES</a> 
-					<ul class="subProve" id="subProve">
-
-						<li class="subProveli"><a href="../proveedores/proveedoresRegistro.php" id="FormularioProv" class="activeProve">Registrar Proveedor</a>
-						</li>
-						<li class="subProveli"><a href="../proveedores/proveedoresHabilitados.php" id="DeshabilitadosProv" class="activeProve">Proveedores Habilitados</a>
-						</li>
-						<li class="subProveli"><a href="#Estado-Proveedor" id="DeshabilitadosProv" class="activeProve">Proveedores Deshabilitados</a>
-						</li>
-					</ul>
-				</li>
-				<li class="mnli"><img src="../img/trabajadores.png" class="icon-clie"><a href="#Trabajadores" id="Trabajadores2" class="active">TRABAJADORES</a>
-					<ul class="subTraba" id="subClientes">
-						<li class="subTrabali"><a href="../trabajadores/trabajadoresRegistro.php" id="FormularioTrab" class="activeTraba">Registrar Trabajador</a></li>
-						<li class="subTrabali"><a href="../trabajadores/trabajadoresHabilitados.php" id="HabilitadosTrab" class="activeTraba">Trabajadores Habilitados</a></li>
-						<li class="subTrabali"><a href="../trabajadores/trabajadoresDeshabilitados.php" id="DeshabilitadosTrab" class="activeTraba">Trabajadores Deshabilitados</a></li>
-					</ul>
-
-				</li>
-				<li class="mnli"><img src="../img/usuario.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">USUARIOS</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="../usuarios/usuarioRegistro.php" id="FormularioClie" class="activeUsuario">Registrar Usuaio</a></li>
-						<li class="subUsuarioli"><a href="../usuarios/usuarioHabilitados.php" id="FormularioClie" class="activeUsuario">Usuarios Habilitados</a></li>
-						<li class="subUsuarioli"><a href="../usuarios/usuarioDeshabilitados.php" id="FormularioClie" class="activeUsuario">Usuarios Deshabilitados</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/venta.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">VENTAS</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">Realizar venta</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">Realizar venta Acredito</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">Pedido</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/almacen.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">ALMACEN</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Deshabilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/estado.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">ESTADO</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/prod.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">PRODUCTO</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="producto/productoRegistro.php" id="FormularioClie" class="activeUsuario">Registrar Producto</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/historial.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">HISTORIAL</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/ticket.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">TICKET</a>
-					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
-					</ul>
-				</li>
-
-				<li class="mnli"><img src="../img/Ayuda.png" class="icon-clie"><a href="#" class="active">AYUDA</a></li>
-				<form action="CerrarSesion.php" method="POST">
-					<li class="mnli" ><a href="../../cerrar.php" class="activeUsuario1"><img src="../img/cerrar.png" class="icon-clie" >CERRAR SESIÓN</a> 
-						<a class="activeUsuario2" href="../../cerrar.php">Usuario: <?php echo $_SESSION['usuario']; ?></a>
-					</li>
-				</form>
-			</ul>
-		</nav>
+		<?php include "../includes/nav.php" ?>
 	</header>	
 </div>			
 			<!--------FORMULARIO-------->	
-	<header class="header-for">
+	<header class="header-for" >
 		<div>		
 			<form class="formulario" id="myformularioProd" >
+				<h1 class="lb-cliente-t">Registro de Productos</h1>
+				<br>
 				<h2 class="lb-cliente-t">Datos Producto</h2>
 
-				<table  width="1000" height="100">
+				<table  width="1000" height="100" >
 					<tr>
 						<td width="135">
 							<label class="lb-cliente">*Nombre del Producto:</label>
@@ -167,7 +78,7 @@ if($varsesion == null || $varsesion = ''){
 						</td>
 						<td>	
 						<br>						
-							<textarea rows="8" cols="20" class="txt-cliente" id="descProducto" placeholder="Comentarios..."></textarea>
+							<textarea rows="4" cols="20" class="txt-cliente" id="descProducto" placeholder="Limite 30 Caracteres..." maxlength="30"></textarea>
 						</td>
 						<td width="80">
 							<label class="lb-cliente">*Tipo de carne:</label>
@@ -184,33 +95,61 @@ if($varsesion == null || $varsesion = ''){
 				<br><br>
 				<h2 class="lb-cliente-t">Datos Producto Detalles</h2>
 
-				<table  width="1000" height="100">
+				<table  width="1000" height="160">
+					<tr>
+						<td width="80">
+							<label class="lb-cliente">*Unidad de Medida:</label>
+						</td>
+						<td>							
+							<select class="txt-cliente" id="unidadMed">
+  								<option value="1">Selecciona la Medida</option>
+  								<option value="kilogramos">kilogramos</option>
+  								<option value="unidad">Unidad</option>
+							</select>
+						</td>
+						<td width="80">
+							<label class="lb-cliente">*Tiempo en que se Caduca:</label>
+						</td>
+						<td>
+							<select class="txt-cliente" id="tiempCad">
+  								<option value="1">Selecciona la Caducidad</option>
+  								<option value="7">1 Semana</option>
+  								<option value="14">2 Semana</option>
+  								<option value="21">3 Semana</option>
+  								<option value="28">4 Semana</option>
+  								<option value="35">5 Semana</option>
+  								<option value="42">6 Semana</option>
+  								<option value="49">7 Semana</option>
+							</select>							
+						</td>
+					</tr>
+					<tr>
+						<td width="80">
+							<label class="lb-cliente">*Unidad de Cajas:</label>
+						</td>
+						<td>							
+							<input type="text" class="txt-cliente" id="unidadesC" placeholder="">
+						</td>
+						<td width="80">
+							<label class="lb-cliente">*Kilogramos de Cajas o :</label>
+						</td>
+						<td>
+							<input type="text" class="txt-cliente" id="unidadesK" placeholder="">
+							
+						</td>
+					</tr>
 					<tr>
 						<td width="135">
 							<label class="lb-cliente">*Precio de Compra:</label>
 						</td>
 						<td>
-							<input type="number" class="txt-cliente" id="precioC" placeholder="$...">
+							<input type="text" class="txt-cliente" id="precioC" placeholder="$...">
 						</td>
 						<td width="135">
 							<label class="lb-cliente">*Precio de Venta:</label>
 						</td>
 						<td>
-							<input type="number" class="txt-cliente" id="precioV" placeholder="$...">
-						</td>
-					</tr>
-					<tr>
-						<td width="80">
-							<label class="lb-cliente">*Unidades de la Caja:</label>
-						</td>
-						<td>							
-							<input type="number" class="txt-cliente" id="unidadesC" placeholder="">
-						</td>
-						<td width="80">
-							<label class="lb-cliente">*Kilogramos de Cada Unidad:</label>
-						</td>
-						<td>
-							<input type="text" class="txt-cliente" id="unidadesK" placeholder="">
+							<input type="text" class="txt-cliente" id="precioV" placeholder="$...">
 						</td>
 					</tr>
 				</table>
@@ -228,32 +167,40 @@ if($varsesion == null || $varsesion = ''){
 				</table>
 			</form>
 		</div>
-
+	<script src="../../controles/js/productoFuncion.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 
 				$('#Agregar').click(function(){
+					idProveedorRP=$('#idProveedorRP').val();
 					nombreProducto=$('#nombreProducto').val();
-					proveedor=$('#proveedor').val();
 					descProducto=$('#descProducto').val();
 					tipoCarne=$('#tipoCarne').val();
-					precioC=$('#precioC').val();
-					precioV=$('#precioV').val();
+					unidadMed=$('#unidadMed').val();
+					tiempCad=$('#tiempCad').val();					
 					unidadesC=$('#unidadesC').val();
 					unidadesK=$('#unidadesK').val();
-					agregarProducto(nombreProducto,proveedor,descProducto,tipoCarne,precioC,
-						precioV,unidadesC,unidadesK);
+					precioC=$('#precioC').val();
+					precioV=$('#precioV').val();
+					agregarProducto(idProveedorRP,nombreProducto,descProducto,tipoCarne,unidadMed,tiempCad,unidadesC,unidadesK,precioC,
+						precioV);
 
 					if ($('#nombreProducto').val()==""){
 						alertify.alert("Debes Ingresar el Nombre del Producto");
 						return false;
-					}else if($('#proveedor').val()==""){
+					}else if($('#idProveedorRP').val()==""){
 						alertify.alert("Debes Seleccionar el Proveedor");
 						return false;
 					}else if($('#descProducto').val()==""){
 						alertify.alert("Debes Ingresar una Descripción de Producto");
 						return false;
 					}else if($('#tipoCarne').val()=="Selecciona el Tipo"){
+						alertify.alert("Debes Seleccionar el Tipo");
+						return false;
+					}else if($('#unidadMed').val()=="Selecciona la Medida"){
+						alertify.alert("Debes Seleccionar la Caducidad");
+						return false;
+					}else if($('#tiempCad').val()=="Selecciona la Caducidad"){
 						alertify.alert("Debes Seleccionar el Tipo");
 						return false;
 					}else if($('#precioC').val()==""){

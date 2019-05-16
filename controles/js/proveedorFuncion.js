@@ -51,6 +51,33 @@ success: function(r){
 }
 
 
+function actualizarProveedor(idProveedorP,nombreP,emailP,rfcP,telefonoP){
+
+    cadena="idProveedorP=" + idProveedorP +
+    "&nombreP=" + nombreP + 
+	"&emailP=" + emailP + 
+	"&rfcP=" + rfcP +
+	"&telefonoP=" + telefonoP;
+
+    $.ajax({
+		type:"POST",
+		url:"../../modelo/proveedores/actualizarProveedor.php",
+		data:cadena,
+		success: function(r){
+			if (r==1) {				
+				//$('#tabla').load('interfaces/tabla.php');
+				alertify.success("Datos Guardados con exito");
+				$('#myformularioP')[0].reset();
+				$('#datos').load('../../modelo/proveedores/tablaProveedoresH.php');
+			}else{
+				alertify.error("Datos no Guardados");	
+			}
+
+		}
+	});
+}
+
+
 
 
 function eliminarProv(idProveedor){

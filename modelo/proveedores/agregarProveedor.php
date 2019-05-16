@@ -17,7 +17,7 @@ require_once "../conexion/conexion.php";
  $no_interior=$_POST['no_interior'];
 
 
-  	if ($nombreProv == "" || $emailProv == "" || $rfcProv == "" || $telefonoProv == "" || $cp == "" || $estado == "" || 
+  	if ($nombreProv == "" || $emailProv == "" || $telefonoProv == "" || $cp == "" || $estado == "" || 
   		$municipio == "" || $localidad == "" || $calle == "" || $no_exterior == "" || $no_interior == "") {
   		echo "campos obligatorios";
   	}else{

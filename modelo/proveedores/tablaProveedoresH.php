@@ -12,8 +12,8 @@ function deshabilitado(idProveedor) {
 }
 
 function modificar(idProveedor) {
-	
-	//$('#nombreClienteE').val("prueba");
+	var idProveedor =idProveedor;
+	$('#idProveedorP').val(idProveedor);
 	
 }
 
@@ -25,13 +25,13 @@ function eliminar(idProveedor) {
 	}, function(){ alertify.error('Se cancelo')});
 	
 }
-/*function detalles(idProveedor) {
+function detalles(idProveedor) {
 
 	
-	 var doc="InformacionProveedorFi.php?idProveedor="+idProveedor;
+	 var doc="informacionProveedor.php?idProveedor="+idProveedor;
          window.location=doc;
 	
-}*/
+}
 
 </script>
 <?php
@@ -65,7 +65,7 @@ if ($resultado ->num_rows > 0)  {
 					
 					<th class='th'>Estado</th>
 					<th class='th'>Actualizar</th>
-					<th class='th'>Eliminar</th>
+					<th class='th'>Eliminarlos</th>
 					<th class='th'>Información</th>
 				</tr>
 			</thead>
@@ -88,10 +88,10 @@ if ($resultado ->num_rows > 0)  {
 					<button href='#' onclick='deshabilitado(".$mostrar['idProveedor'].")' class='btn-estado'><span class='glyphicon glyphicon-eye-close'></span> Deshabilitar</button>		
 				</td>
 				<td class='td'>
-					<button  href='#' onclick='modificar(".$mostrar['idProveedor']."||".$mostrar['nombreProveedor'].")' data-toggle='modal' data-target='#modaledi' class='btn-editar'><span class='glyphicon glyphicon-edit'></span> Editar</button>					
+					<button  href='#' onclick='modificar(".$mostrar['idProveedor'].")' data-toggle='modal' data-target='#modaledi' class='btn-editar'><span class='glyphicon glyphicon-edit'></span> Editar</button>					
 				</td>
 				<td class='td'>
-					<button href='#' onclick='eliminar(".$mostrar['idProveedor'].")' class='btn-borrar'><span class='glyphicon glyphicon-remove'></span> Bra</button>					
+					<button href='#' onclick='eliminar(".$mostrar['idProveedor'].")' class='btn-borrar'><span class='glyphicon glyphicon-remove'></span> Borrar</button>					
 				</td>
 				<td class='td'>
 					<button href='#' onclick='detalles(".$mostrar['idProveedor'].")' class='btn-detalles'><span class='glyphicon glyphicon-question-sign'></span> Detalles</button>					

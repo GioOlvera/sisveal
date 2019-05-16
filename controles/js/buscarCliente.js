@@ -24,9 +24,3 @@ $(document).on('keyup', '#buscadorCliente', function(){
     buscar_datos();
   }
 });
-
-function enviar(idClienteV){
-  d=idClienteV.split('||');
-
-$('#idClienteV').val(d);
-}
