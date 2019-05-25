@@ -23,9 +23,9 @@ function agregardatosU(idTrabajador,cargo,correoE,usuario,password){
 	});
 }
 
-function deshabilitarProv(idTrabajadors){
+function deshabilitarUsua(idTrabajador){
 
- cadena="idTrabajadors=" + idTrabajadors;
+ cadena="idTrabajador=" + idTrabajador;
 
  $.ajax({
 type:"POST",
@@ -44,35 +44,59 @@ success: function(r){
 }
 
 
+function actualizarUsuario(idTrabajadorU,usuarioU,emailU,password){ 
+
+    cadena="idTrabajadorU=" + idTrabajadorU +
+    "&usuarioU=" + usuarioU + 
+    "&emailU=" + emailU + 
+	"&password=" + password;
+
+    $.ajax({
+		type:"POST",
+		url:"../../modelo/usuarios/actualizarUsuario.php",
+		data:cadena,
+		success: function(r){
+			if (r==1) {				
+				//$('#tabla').load('interfaces/tabla.php');
+				alertify.success("Datos Guardados con exito");
+				//$('#myformularioT')[0].reset();
+				$('#datos').load('../../modelo/usuarios/tablaUsuariosH.php');
+			}else{
+				alertify.error("Datos no Guardados");	
+			}
+
+		}
+	});
+}
 
 
-function eliminarProv(idTrabajadors){
+function eliminarUsuario(idTrabajador){
 
- cadena="idTrabajadors=" + idTrabajadors;
+ cadena="idTrabajador=" + idTrabajador;
 
  $.ajax({
 type:"POST",
-url:"../../modelo/usuarios/eliminarUsuarios.php",
+url:"../../modelo/usuarios/eliminarUsuario.php",
 data:cadena,
 success: function(r){
-	if (r==1) {		
-		alertify.error("Registro no eliminado");	
-		}else{
+	if (r==1) {	
 		alertify.success("Registro eliminado con exito");
-		$('#datos').load('../../modelo/usuarios/tablaUsuariosH.php');
+		$('#datos').load('../../modelo/usuarios/tablaUsuariosH.php');			
+		}else{
+		alertify.error("Registro no eliminado");
 		}
 
 	}
 });
 }
 
-function habilitarProv(idTrabajadors){
+function habilitarUsua(idTrabajador){
 
- cadena="idTrabajadors=" + idTrabajadors;
+ cadena="idTrabajador=" + idTrabajador;
 
  $.ajax({
 type:"POST",
-url:"../../modelo/usuarios/habilitarUsuarios.php",
+url:"../../modelo/usuarios/habilitarUsuario.php",
 data:cadena,
 success: function(r){
 	if (r==1) {				

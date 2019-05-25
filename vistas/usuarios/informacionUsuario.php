@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Información Trabajador</title>
+	<title>Información Usuario</title>
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" >
@@ -29,9 +29,43 @@
 </div>	
 
 	<form class="formulario" id="myformulario">
-		<h2 class="lb-cliente-t">Información del Trabajador</h2>
+		<h2 class="lb-cliente-t">Información del Usuario</h2>
 
 		<?php
+
+		require_once "../../modelo/conexion/conexion.php";
+		$idTrabajador = $_GET['idTrabajador'];
+
+		$sql2="SELECT * FROM usuario WHERE idTrabajador='$idTrabajador'";  
+		$resultado=mysqli_query($conexion, $sql2);
+		while($mostrar=mysqli_fetch_array($resultado)){
+
+		?>
+
+		<table  width="1000" height="100" align="center">
+			<tr>
+				<td width="200">
+					<label class="lb-cliente" style="font-size: 18px;">Usuario:</label>
+				</td>
+				<td width="500">
+					<label class="txt-cliente" style="font-size: 18px;"><?php echo $mostrar['usuario']; ?></label>
+				</td>
+				<td width="200">
+					<label class="lb-cliente" style="font-size: 18px;">Correo:</label>
+				</td>
+				<td width="500">
+					<label class="txt-cliente" style="font-size: 18px;"><?php echo $mostrar['correo']; ?></label>
+				</td>
+			</tr>
+		</table>
+		<?php
+	}
+		?>
+		<br>
+
+		<h2 class="lb-cliente-t" align="center">Datos del Trabajador</h2>
+
+				<?php
 
 		require_once "../../modelo/conexion/conexion.php";
 		$idTrabajador = $_GET['idTrabajador'];
@@ -51,6 +85,7 @@
 					<label class="txt-cliente" style="font-size: 18px;"><?php echo $mostrar['nombreTrabajador']; ?></label>
 				</td>
 				<td width="200">
+					<br>
 					<label class="lb-cliente" style="font-size: 18px;">Apellido Paterno:</label>
 				</td>
 				<td width="500">
@@ -97,90 +132,13 @@
 		<?php
 	}
 		?>
-		<br><br>
 
-		<h2 class="lb-cliente-t" align="center">Datos Dirección</h2>
-
-		<?php
-		require_once "../../modelo/conexion/conexion.php";
-		//$id_ClienteDireccion = $_GET['id_ClienteDireccion'];
-
-		$sql3="SELECT * FROM direcciontrabajador WHERE idTrabajador='$idTrabajador'";  
-		$resultado2=mysqli_query($conexion, $sql3);
-		while($mostrar2=mysqli_fetch_array($resultado2)){
-
-		?>
-
-		
-		<script>
-			
-		</script>
-
-		<table width="1000" height="100" align="center">
-
-			<tr>
-				<td width="160">
-					<label class="lb-cliente" style="font-size: 18px;">Código Postal:</label>
-				</td>	
-				<td width="400">
-					<label class="txt-cliente" style="font-size: 18px;"><?php echo $mostrar2['cp']; ?></label>
-				</td>
-				<td width="160">
-					<label class="lb-cliente" style="font-size: 18px;">Estado:</label>
-				</td>
-				<td width="400">
-					<label class="txt-cliente" style="font-size: 18px;"><?php echo $mostrar2['estado']; ?></label>
-				</td>
-			</tr>
-
-			<tr>
-				<td width="80">
-					<label class="lb-cliente" style="font-size: 18px;">Municipio:</label>
-				</td>
-				<td>
-					<label class="txt-cliente" style="font-size: 18px;"> <?php echo $mostrar2['municipio']; ?> </label>
-				</td>
-				<td width="80">
-					<label class="lb-cliente" style="font-size: 18px;">Localidad:</label>
-				</td>
-				<td>
-					<label class="txt-cliente" style="font-size: 18px;"> <?php echo $mostrar2['localidad']; ?> </label>
-				</td>
-			</tr>
-		</table>
-		
-		<table width="800" height="100" align="center">
-			<tr>
-				<td width="170">
-					<label class="lb-cliente" style="font-size: 18px;">Calle:</label>
-				</td>
-				<td width="350">
-					<label class="txt-cliente" style="font-size: 18px;"> <?php echo $mostrar2['calle']; ?> </label>
-				</td>
-				<td width="170">
-					<label class="lb-cliente" style="font-size: 18px;">No° Exterior:</label>
-				</td>
-				<td width="350">		
-					<label class="txt-cliente" style="font-size: 18px;"> <?php echo $mostrar2['no_exterior']; ?> </label>
-				</td>
-				<td width="170">
-					<label class="lb-cliente" style="font-size: 18px;">No° Interior:</label>
-				</td>
-				<td width="350">
-					<label class="txt-cliente" style="font-size: 18px;"> <?php echo $mostrar2['no_interior']; ?> </label>
-				</td>
-			</tr>
-			
-			<?php
-		}
-			?>
-		</table>
 		<br>
 		<table width="1000">
 
 			<tr align="center">
 				<td>
-					<a class="bot-reg" type="submit" id="Agregar" name="Agregar" href="trabajadoresHabilitados.php" style="text-decoration: none;">Aceptar</a>
+					<a class="bot-reg" type="submit" id="Agregar" name="Agregar" href="usuariosHabilitados.php" style="text-decoration: none;">Aceptar</a>
 				</td>
 			</tr>			
 		</table>			

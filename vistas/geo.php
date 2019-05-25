@@ -2,96 +2,68 @@
 <html lang="es">
 <head>
  <meta charset="utf-8"/>
- <title>Ubicación</title>
-   <script type="text/javascript">
- 
-     function localizar()
-      {
-        navigator.geolocation.getCurrentPosition(ubicacion,error);
+ <title>Desc</title>
 
-      }
- 
-     function ubicacion(posicion)
-      {
-        var contenedor = document.getElementById("mapa");
- 
-        var latitud = posicion.coords.latitude;
-        var longitud = posicion.coords.longitude;
-        var precision = posicion.coords.accuracy;
- 
-          alert("Lat="+latitud+" - Long="+longitud+" - Precision="+precision);
-       }
- 
-      function error(error)
-       {
-         if(error.code == 0)
-            alert("Error Desconocido");
-         else if(error.code == 1)
-             alert("No fue posible contactarte");
-         else if(error.code == 2)
-            alert("No hay una ubicacion disponible");
-         else if(error.code == 3)
-            alert("Tiempo agotado");
-        else
-            alert("Error Desconocido");
-        }
-    </script>
  
 </head>
-<body onload="localizar()">
-<?php
-	echo "<br><br>";
-$latitude = "<script> document.write(latitud); </script>";
-echo "MI latitude = ".$latitude." <br>";
-$longitude = "<script> document.write(longitud); </script>";
-echo "longitude = ".$longitude." <br>";
-?>
-  <button onClick="localizar()">Ver mi Ubicación </button>
+<body>
+<script type="text/javascript" src="../controles/js/jquery.js"></script>
 
+<div id="fecha">2012-07-25 18:30:50</div>
 
-<!--FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF-->
-<script language='JavaScript'>
-  var myVal = 'Ahora si.. El problema esta resuelto..!!';
-  function getvariable(myVal) {
+<a href="#" id="see">Ver efecto</a>
+<br>
 
-    //var variable = eval(val);
-    //document.write(variable);
-  }
+<script type="text/javascript">
+$(document).ready(function() {
 
-  var miVariable = 1; 
+    $('#see').click(function(){
+        var element = $("#fecha").text().split(' ');
+        var fecha = element[0].split('-');
+        //var fecha1=fecha[2];
+        //var tfecha1=fecha1+4;
+        //document.getElementById("fecha2").innerHTML = fecha[2]+'/'+fecha[1]+'/'+fecha[0];
+
+        document.getElementById("fecha2").innerHTML = fecha[0]+'/'+fecha[1]+'/'+fecha[2];
+        //alert('Fecha formateada: '+fecha[2]+'/'+fecha[1]+'/'+fecha[0]);
+        var tiempo = element[1].split(':');
+        document.getElementById("hora").innerHTML = tiempo[0]+'h '+tiempo[1]+'min '+tiempo[2]+' seg';
+        //alert('Tiempo formateado: '+tiempo[0]+'h '+tiempo[1]+'min '+tiempo[2]+' seg');
+        return false;
+    });
+});
 </script>
+
 <?php
-function obtenervarjavascript($js_var_name) {
-  $x = "<script language='JavaScript'> getvariable('" . $js_var_name . "'); </script>";
-  return $x;
-}
+    $cadena = '2012-07-25';
+
+    list($palabra1, $palabra2, $palabra3) = explode('-', $cadena);
+
+    echo $palabra1 . '<br>';
+
+    echo $palabra2 . '<br>';
+
+    echo $palabra3 . '<br>';
+
+
+   $contador = 1;
+   $limite = 10;
+   while($contador < $limite){
+      if ($contador<5) {
+        echo $contador . '<br />';
+        $ttt=$contador-4;
+      }
+      
+      $contador++;
+      
+   }echo 'hhhh'.$ttt . '<br />';
 ?>
 
 
-<form name="form1">
-  <?php
-  $var1 = obtenervarjavascript("document.forms[0].name");
-  $var2 = "<script language='JavaScript'> document.write(myVal) </script>";
-  ?>
-  <center><?php print "El nombre del formulario: " . $var1; ?></center><br>
-  <center><?php print "JScript guardada: " . $var2; ?></center><br>
-
-  <input type="button" name="" value="Prueba">
-
-  <br>
-
-  <?php
-$datos = "<script>document.write(miVariable)</script>";
-$datos2 = "<script>document.write(myVal);</script>";
-echo "resultado: ".$datos2;
-?>
-</form>
-<p></p>
 
 
- <body>
- 
-
+<h3 id="fecha2"></h3>
+<h3 id="hora"></h3>
     </body>
 
  </body>

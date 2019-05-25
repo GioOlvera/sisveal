@@ -1,8 +1,18 @@
-<html> 
-<head> 
-<title>Reloj con Javascript</title> 
+<?php
+session_start();
+$varsesion = $_SESSION['usuario'];
+
+if($varsesion == null || $varsesion = ''){
+	echo 'Uste no tiene Autorización';
+	header("Location: ../../index.html");
+	die();
+}
+?>
+
+<link rel="stylesheet" href="../css/menuNotificaciones.css" >
+
 <script language="JavaScript"> 
-function startTime() {
+onload = function startTime() {
     var today = new Date();
     var hr = today.getHours();
     var min = today.getMinutes();
@@ -14,13 +24,13 @@ function startTime() {
     hr = checkTime(hr);
     min = checkTime(min);
     sec = checkTime(sec);
-    document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec + " " + ap;
+    document.getElementById("relojs").innerHTML = hr + ":" + min + ":" + sec + " " + ap;
   
 
     //fecha
     var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     var days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
-    //var curWeekDay = days[today.getDay()];
+    var curWeekDay = days[today.getDay()];
     var curDay = today.getDate();
     //var curMonth = months[today.getMonth()];
     var curMonth = today.getMonth()+1;
@@ -29,19 +39,20 @@ function startTime() {
     curDay = ceros(curDay);
     curMonth = ceros(curMonth);
 
-    var date = curDay+"/"+curMonth+"/"+curYear;
+    var date = curWeekDay+", "+curDay+"/"+curMonth+"/"+curYear;
     
-    document.getElementById("date").value = date;
+    document.getElementById("fechaAct").innerHTML = date;
 
-    if (curMonth >= 8 && min >= 11 && curMonth <= 8 && min <= 11 && sec < 1) {
+    //if (curMonth >= 8 && min >= 9 && curMonth <= 8 && min <= 11 && sec < 1) {
 
-        if (hr >= 8 && min >= 9 && hr <= 8 && min <= 9 && sec < 1) {
+        if (hr >= 9 && min >= 47 && hr <= 9 && min <= 47 && sec < 1) {
            //document.getElementById("saludo").innerHTML = "buenos días";
     	   notify();
         }else{
     	   false;
         }
 
+    /*
     }else{
         false;
     }
@@ -69,24 +80,25 @@ function ceros(i) {
 }
 </script> 
 <script src="../../controles/js/notif.js"></script>
-</head> 
-
-<body onload="startTime()"> 
-
-<h1>Vemos aquí el reloj funcionando...</h1> 
-
-<form name="form_reloj"> 
-<div id="clockdate" align="center">
-  <div class="clockdate-wrapper">
-    <label id="clock"></label>
-    <input type="text" id="date" name=""> 
-    <div id="saludo"></div>
-
-    <section id="contSaludo"></section>
-  </div>
+<div id="cuadroMenu">
+<header align="center" id="notificacion" style="background-color: teal;">		
+    
+	<ul id="notif" >
+		<li><a>HORA/FECHA: <a id="relojs"></a> <a id="fechaAct"></a></a></li>
+		<li><a style="background-color: lightseagreen;"><strong>SISTEMA DE VENTAS Y ALMACENAMIENTO</strong></a></li>
+		<li><a><img class="icon" src="../img/Usuar.png" alt="usuario"> USUARIO: <?php echo $_SESSION['usuario']; ?></a></li>
+		<li><a> | </a></li>
+		<li><a><img class="icon" src="../img/escritura.png" alt="notificación"> NOTIFICACIONES</a></li>
+		<li><a href="../includes/cerrarSesion.php"><img class="icon" src="../img/cerrar.png" alt="Salir del sistema" title="salir"> CERRAR SESIÓN</a></li>		
+	</ul>			
+    
+</header>
 </div>
-</form> 
-
-</body> 
-
-</html> 
+<style type="text/css">
+    div#cuadroMenu{
+  width: 1400px;
+  height: 58px;
+  position: relative;
+  background: teal;
+}
+</style>

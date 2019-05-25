@@ -1,5 +1,5 @@
 //TABLA COMPRA
-jQuery(document).on('submit','#myformularioCompD',function(event){
+/*jQuery(document).on('submit','#myformularioCompD',function(event){
 	event.preventDefault();
 	jQuery.ajax({
 		url: '../../modelo/almacen/agregarCompraDesc.php',
@@ -13,7 +13,7 @@ jQuery(document).on('submit','#myformularioCompD',function(event){
 				$('#myformularioComp')[0].reset();
 			}else{
 				alertify.error("Datos no Guardados");	
-			}*/
+			}
 
 		}
 	})
@@ -34,7 +34,7 @@ jQuery(document).on('submit','#myformularioCompD',function(event){
 		//alertify.success("Datos no Guardados");
 	})
 
-});
+});*/
 
 function compra(idProveedorRP,fecha){
 
@@ -52,17 +52,46 @@ function compra(idProveedorRP,fecha){
 				
 			}else{
 				alertify.success("Datos Guardados con exito");
+				//window.location.load("Location: ../../modelo/descripcionCompra.php");
+				//var pagina="../../vistas/almacen/descripcionCompra.php";
+				//function redireccionar(){window.location.href=pagina;} 
+				//setTimeout ("redireccionar()", 1000);
 			}
 
 		}
 	});
 }
 
-//ACTUALIZAR TOTAL//////////
-function totalA(total,idUltimo){
+//AGREGAR DESCRIPCIÓN DE COMPRA//////////
+function descCompra(idUltimo,buscadorProducto,kl_pza,cajas,kdcc){ 
+	cadena="idUltimo=" + idUltimo +
+	"&buscadorProducto=" + buscadorProducto +
+	"&kl_pza=" + kl_pza +
+	"&cajas=" + cajas +
+	"&kdcc=" + kdcc;
 
-	cadena="total=" + total +
-	"&idUltimo=" + idUltimo;
+	$.ajax({
+		type:"POST",
+		url:"../../modelo/almacen/agregarCompraDesc.php",
+		data:cadena,
+		success: function(r){
+			if (r==1) {				
+				//$('#tabla').load('interfaces/tabla.php');
+				alertify.error("Datos no Guardados");
+			}else{					
+				alertify.success("Datos Guardados con exito");
+			}
+
+		}
+	});
+}
+
+
+//ACTUALIZAR TOTAL//////////
+function totalA(idUltimo,costPedido){
+
+	cadena="idUltimo=" + idUltimo +
+	"&costPedido=" + costPedido;
 
 	$.ajax({
 		type:"POST",
@@ -82,7 +111,7 @@ function totalA(total,idUltimo){
 
 //BLOQUEAR LETAS
 onload = function(){ 
-  var precio = document.querySelectorAll('#precio')[0];
+  var precio = document.querySelectorAll('#kl_pza')[0];
   var cajas = document.querySelectorAll('#cajas')[0];
   precio.onkeypress = function(e) {
      if(isNaN(this.value+String.fromCharCode(e.charCode)))

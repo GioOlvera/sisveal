@@ -63,13 +63,13 @@
 				<li class="mnli"><img src="../img/prod.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">PRODUCTO</a>
 					<ul class="subUsuario" id="subClientes">
 						<li class="subUsuarioli"><a href="../producto/productoRegistro.php" id="FormularioClie" class="activeUsuario">Registrar Producto</a></li>
-						<li class="subUsuarioli"><a href="../producto/productoRegistro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
+						<li class="subUsuarioli"><a href="../producto/productoTabla.php" id="FormularioClie" class="activeUsuario">Tabla de Productos</a></li>
 					</ul>
 				</li>
 
 				<li class="mnli"><img src="../img/historial.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">HISTORIAL</a>
 					<ul class="subUsuario" id="subClientes">
-						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">000000</a></li>
+						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">Historial de Compra</a></li>
 						<li class="subUsuarioli"><a href="UsuariosPrincipales-Habilitados.php" id="FormularioClie" class="activeUsuario">000000</a></li>
 					</ul>
 				</li>
@@ -80,11 +80,18 @@
 					</ul>
 				</li>
 
+				<li class="mnli"><img src="../img/ticket.png" class="icon-clie"><a href="#" id="Operaciones2" class="active">ALARMAS</a>
+					<ul class="subUsuario" id="subClientes">
+						<li class="subUsuarioli"><a href="UsuariosPrincipales-Registro.php" id="FormularioClie" class="activeUsuario">Ver Alarmas</a></li>
+					</ul>
+				</li>
+
 				<li class="mnli"><img src="../img/Ayuda.png" class="icon-clie"><a href="#" class="active">AYUDA</a></li>
-				<form action="CerrarSesion.php" method="POST">
+
+				<!--<form action="CerrarSesion.php" method="POST">
 					<li class="mnli" ><a href="../../cerrar.php" class="activeUsuario1"><img src="../img/cerrar.png" class="icon-clie" >CERRAR SESIÓN</a> 
-						<a class="activeUsuario2" href="../../cerrar.php">Usuario: <?php echo $_SESSION['usuario']; ?></a>
+						<a class="activeUsuario2" href="../../cerrar.php">Usuario: <?php //echo $_SESSION['usuario']; ?></a>
 					</li>
-				</form>
+				</form>-->
 			</ul>
 		</nav>

@@ -69,8 +69,9 @@ thead{
 	background-color: dodgerblue;
 	color: white;
 }
-.td1{
+.tr:hover .td1{
 	background-color: tomato;
+	color: white;
 }
 
 /*-------ESTILO DE BOTONES-----*/

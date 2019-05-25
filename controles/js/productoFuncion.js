@@ -1,15 +1,12 @@
-function agregarProducto(idProveedorRP,nombreProducto,descProducto,tipoCarne,unidadMed,tiempCad,precioC,precioV,unidadesC,unidadesK){
+function agregarProducto(idProveedorRP,nombreProducto,descProducto,tipoCarne,unidadMed,tiempCad
+  /*,precioC,precioV,unidadesC,unidadesK*/){
 
 	cadena="idProveedorRP=" + idProveedorRP +  
 	"&nombreProducto=" + nombreProducto +
 	"&descProducto=" + descProducto +
 	"&tipoCarne=" + tipoCarne +
 	"&unidadMed=" + unidadMed +
-	"&tiempCad=" + tiempCad +	
-	"&precioC=" + precioC +
-	"&precioV=" + precioV +
-	"&unidadesC=" + unidadesC +
-	"&unidadesK=" + unidadesK;
+	"&tiempCad=" + tiempCad;
 
 	$.ajax({
 		type:"POST",
@@ -63,4 +60,51 @@ onload = function(){
   cajas.onpaste = function(e){
      e.preventDefault();
   }
+}
+
+
+function actualizarProducto(idProductoE,nombreProductoE,descProductoE,tipoCarneE,unidadMedE,tiempCadE){
+
+  cadena="idProductoE=" + idProductoE +  
+  "&nombreProductoE=" + nombreProductoE +
+  "&descProductoE=" + descProductoE +
+  "&tipoCarneE=" + tipoCarneE +
+  "&unidadMedE=" + unidadMedE +
+  "&tiempCadE=" + tiempCadE;
+
+  $.ajax({
+    type:"POST",
+    url:"../../modelo/producto/actualizarProducto.php",
+    data:cadena,
+    success: function(r){
+      if (r==1) {       
+        //$('#tabla').load('interfaces/tabla.php');
+        alertify.success("Datos Guardados con exito");
+        $('#myformularioProdE')[0].reset();
+      }else{
+        alertify.error("Datos no Guardados"); 
+      }
+
+    }
+  });
+}
+
+function eliminarProducto(clvProducto){
+
+ cadena="clvProducto=" + clvProducto;
+
+ $.ajax({
+type:"POST",
+url:"../../modelo/producto/eliminarProducto.php",
+data:cadena,
+success: function(r){
+  if (r==1) {   
+    alertify.error("Registro no eliminado");  
+    }else{
+    alertify.success("Registro eliminado con exito");
+    $('#datosProducto').load('../../modelo/producto/tablaProducto.php');
+    }
+
+  }
+});
 }

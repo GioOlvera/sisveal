@@ -1,29 +1,16 @@
+
 <script language="javascript">
 	
 
-function deshabilitado(idTrabajador) {
+function habilitado(idTrabajador) {
 
 	
-	 alertify.confirm('Deshabilitar Usuario', '¿Esta seguro de deshabilitar el Usuario', 
-		function(){ deshabilitarUsua(idTrabajador) 
+	 alertify.confirm('Habilitar Usuario', '¿Esta seguro de Habilitar el Usuario', 
+		function(){ habilitarUsua(idTrabajador) 
 	}, function(){ alertify.error('Se cancelo')});
 	
 }
 
-function modificar(idTrabajador) {
-	var idTrabajador =idTrabajador;
-	$('#idTrabajadorU').val(idTrabajador);
-	
-}
-
-function eliminar(idTrabajador) {
-
-	
-	 alertify.confirm('Eliminar Usuario', '¿Esta seguro de eliminar el registro?', 
-		function(){ eliminarUsuario(idTrabajador) 
-	}, function(){ alertify.error('Se cancelo')});
-	
-}
 function detalles(idTrabajador) {
 
 	
@@ -61,8 +48,6 @@ if ($resultado ->num_rows > 0)  {
 					<th class='th'>Email</th>
 					
 					<th class='th'>Estado</th>
-					<th class='th'>Actualizar</th>
-					<th class='th'>Eliminarlos</th>
 					<th class='th'>Información</th>
 				</tr>
 			</thead>
@@ -70,7 +55,7 @@ if ($resultado ->num_rows > 0)  {
 
 	while($mostrar = $resultado->fetch_assoc() ){
 
-	if($mostrar['EstadoUsuario']=='1'){	
+	if($mostrar['EstadoUsuario']=='0'){	
 
 		$salida.="
 			<tr class='tr' id='Habilitado' onclick='seleccionar(this.1)'>
@@ -81,13 +66,7 @@ if ($resultado ->num_rows > 0)  {
 				
 
 				<td class='td' >				
-					<button href='#' onclick='deshabilitado(".$mostrar['idTrabajador'].")' class='btn-estado'><span class='glyphicon glyphicon-eye-close'></span> Deshabilitar</button>		
-				</td>
-				<td class='td'>
-					<button  href='#' onclick='modificar(".$mostrar['idTrabajador'].")' data-toggle='modal' data-target='#modaledi' class='btn-editar'><span class='glyphicon glyphicon-edit'></span> Editar</button>					
-				</td>
-				<td class='td'>
-					<button href='#' onclick='eliminar(".$mostrar['idTrabajador'].")' class='btn-borrar'><span class='glyphicon glyphicon-remove'></span> Borrar</button>					
+					<button href='#' onclick='habilitado(".$mostrar['idTrabajador'].")' class='btn-estado'><span class='glyphicon glyphicon-eye-close'></span> Habilitar</button>		
 				</td>
 				<td class='td'>
 					<button href='#' onclick='detalles(".$mostrar['idTrabajador'].")' class='btn-detalles'><span class='glyphicon glyphicon-question-sign'></span> Detalles</button>					

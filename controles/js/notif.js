@@ -1,7 +1,7 @@
-var button = document.getElementById("button");
+/*var button = document.getElementById("button");
 	button.addEventListener('click', function(){
 		notify();
-	});
+	});*/
 
 	function notify(){
 		if (!("Notification" in window)) {

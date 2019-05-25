@@ -1,13 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-if($varsesion == null || $varsesion = ''){
-	echo 'Uste no tiene Autorización';
-	header("Location: ../../index.html");
-	die();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,11 +15,11 @@ if($varsesion == null || $varsesion = ''){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<script src="../../controles/librerias/jquery-3.3.1.js"></script>
-	<script src="../../controles/js/jquery.dataTables.min.js"></script>
+	<!--<script src="../../controles/js/jquery.dataTables.min.js"></script>-->
 
 	<script src="../../controles/librerias/quey.js"></script>
 	<script src="../../controles/librerias/jquery.min.js"></script>	
-	<!--<script src="../../controles/librerias/bootstrap.min.js"></script>-->
+	<script src="../../controles/librerias/bootstrap.min.js"></script>
 	<script src="../../controles/librerias/alertifyjs/alertify.js"></script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -41,6 +31,10 @@ if($varsesion == null || $varsesion = ''){
 
 
 <body>
+		<!--MENU DE NOTIFICACIONES-->	
+<div align="center" >			
+		<?php include "../includes/header.php" ?>		
+</div>
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
@@ -95,34 +89,33 @@ if($varsesion == null || $varsesion = ''){
 				<br><br>
 				<h2 class="lb-cliente-t">Datos Producto Detalles</h2>
 
-				<table  width="1000" height="160">
+				<table  width="950" height="60">
 					<tr>
-						<td width="80">
+						<td width="50">
 							<label class="lb-cliente">*Unidad de Medida:</label>
 						</td>
-						<td>							
+						<td width="100">							
 							<select class="txt-cliente" id="unidadMed">
   								<option value="1">Selecciona la Medida</option>
-  								<option value="kilogramos">kilogramos</option>
-  								<option value="unidad">Unidad</option>
+  								<option value="pza y kls">Pieza y Kilos</option>
+  								<option value="cajas y pza">Cajas y pieza</option>
+  								<option value="kls y cajas">kilogramos y Cajas</option>
 							</select>
 						</td>
-						<td width="80">
+						<td width="70">
 							<label class="lb-cliente">*Tiempo en que se Caduca:</label>
 						</td>
-						<td>
+						<td width="110">
 							<select class="txt-cliente" id="tiempCad">
   								<option value="1">Selecciona la Caducidad</option>
   								<option value="7">1 Semana</option>
   								<option value="14">2 Semana</option>
   								<option value="21">3 Semana</option>
   								<option value="28">4 Semana</option>
-  								<option value="35">5 Semana</option>
-  								<option value="42">6 Semana</option>
-  								<option value="49">7 Semana</option>
 							</select>							
 						</td>
 					</tr>
+					<!--
 					<tr>
 						<td width="80">
 							<label class="lb-cliente">*Unidad de Cajas:</label>
@@ -152,22 +145,20 @@ if($varsesion == null || $varsesion = ''){
 							<input type="text" class="txt-cliente" id="precioV" placeholder="$...">
 						</td>
 					</tr>
+					-->
 				</table>
-					<br><br>
+					<br>
 				<table width="1000">
 
 					<tr align="center">
 					    <td>
 							<button class="bot-reg" type="submit" id="Agregar">Registrar</button>					
 						</td>
-						<td>
-
-						</td>
 					</tr>
 				</table>
 			</form>
 		</div>
-	<script src="../../controles/js/productoFuncion.js"></script>
+	<!--<script src="../../controles/js/productoFuncion.js"></script>-->
 	<script type="text/javascript">
 		$(document).ready(function(){
 
@@ -178,12 +169,11 @@ if($varsesion == null || $varsesion = ''){
 					tipoCarne=$('#tipoCarne').val();
 					unidadMed=$('#unidadMed').val();
 					tiempCad=$('#tiempCad').val();					
-					unidadesC=$('#unidadesC').val();
+					/*unidadesC=$('#unidadesC').val();
 					unidadesK=$('#unidadesK').val();
 					precioC=$('#precioC').val();
-					precioV=$('#precioV').val();
-					agregarProducto(idProveedorRP,nombreProducto,descProducto,tipoCarne,unidadMed,tiempCad,unidadesC,unidadesK,precioC,
-						precioV);
+					precioV=$('#precioV').val();*/
+					agregarProducto(idProveedorRP,nombreProducto,descProducto,tipoCarne,unidadMed,tiempCad/*,unidadesC,unidadesK,precioC,precioV*/);
 
 					if ($('#nombreProducto').val()==""){
 						alertify.alert("Debes Ingresar el Nombre del Producto");
@@ -203,7 +193,8 @@ if($varsesion == null || $varsesion = ''){
 					}else if($('#tiempCad').val()=="Selecciona la Caducidad"){
 						alertify.alert("Debes Seleccionar el Tipo");
 						return false;
-					}else if($('#precioC').val()==""){
+					}
+					/*else if($('#precioC').val()==""){
 						alertify.alert("Debes Ingresar el Precio de Compra");
 						return false;
 					}else if($('#precioV').val()==""){
@@ -215,7 +206,7 @@ if($varsesion == null || $varsesion = ''){
 					}else if($('#unidadesK').val()==""){
 						alertify.alert("Debes Ingresar los Kilos de Cada Unidad");
 						return false;
-					}
+					}*/
 
 			});
 
@@ -223,10 +214,10 @@ if($varsesion == null || $varsesion = ''){
 	</script>
 
 	<br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 	</header>
 </body>

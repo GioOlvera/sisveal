@@ -1,13 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-if($varsesion == null || $varsesion = ''){
-	echo 'Uste no tiene Autorización';
-	header("Location: ../../index.html");
-	die();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +16,6 @@ if($varsesion == null || $varsesion = ''){
 	<script src="../../controles/librerias/jquery-3.3.1.js"></script>
 	<script src="../../controles/librerias/quey.js"></script>
 	<script src="../../controles/librerias/jquery.min.js"></script>	
-	<!--<script src="../../controles/librerias/bootstrap.min.js"></script>-->
 	<script src="../../controles/librerias/alertifyjs/alertify.js"></script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -40,6 +29,12 @@ if($varsesion == null || $varsesion = ''){
 
 
 <body>
+	<!--MENU DE NOTIFICACIONES-->	
+<div align="center">		
+	<header>
+		<?php include "../includes/header.php" ?>
+	</header>	
+</div>	
 
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
@@ -94,7 +89,7 @@ if($varsesion == null || $varsesion = ''){
 							<label class="lb-cliente">*Código Postal:</label>
 						</td>	
 						<td width="400">
-							<input type="text" class="txt-cliente" id="txt-buscador" placeholder="74100">
+							<input type="text" class="txt-cliente" id="txt-buscador" maxlength="6" placeholder="74100">
 						</td>
 						<td width="135">
 							<label class="lb-cliente">*Estado:</label>
@@ -219,10 +214,10 @@ if($varsesion == null || $varsesion = ''){
 	</script>
 
 	<br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copiray SISVEAL</p>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 </body>
 </html>

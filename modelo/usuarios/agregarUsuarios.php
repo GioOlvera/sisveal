@@ -6,7 +6,7 @@ $idTrabajador = $_POST['idTrabajador'];
 $cargo = $_POST['cargo'];
 $correoE = $_POST['correoE'];	
 $usuario = $_POST['usuario'];	
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 $Habilitado = "1";
 
 if ($idTrabajador == "" || $cargo == "" || $correoE == "" || $usuario == "" || $password == "") { 

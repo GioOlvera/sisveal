@@ -1,9 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,6 +29,10 @@ $varsesion = $_SESSION['usuario'];
 
 
 <body>
+		<!--MENU DE NOTIFICACIONES-->	
+<div align="center" >			
+		<?php include "../includes/header.php" ?>		
+</div>
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
@@ -63,10 +61,16 @@ $varsesion = $_SESSION['usuario'];
 			<iframe src="barras.php" width="99.8%" height="500px" style="border:none;"></iframe>
 		</footer>				
 	</div>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+	$('#datosAlmacen').load('../../modelo/almacen/mostrarTabla.php');
+	}
+	</script>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 
 

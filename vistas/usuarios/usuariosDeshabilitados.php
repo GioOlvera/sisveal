@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Trabajadores Deshabilitados</title>
+	<title>Usuarios Deshabilitados</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" >
 	<meta http-equiv="X-UA-Compatible" content="le-edge">
@@ -23,8 +23,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script src="../../controles/js/tablaTrabajadorD.js"></script>
-	<script src="../../controles/js/trabajadorFuncion.js"></script>
+	<script src="../../controles/js/tablaUsuarioD.js"></script>
+	<script src="../../controles/js/usuarioFuncion.js"></script>
 
  
 </head>
@@ -45,7 +45,7 @@
 		<!--------TABLAS-------->	
 <br><br>
 	<div align="center" >
-		<label class="titulo" ><b>Tabla de Trabajadores Deshabilitados</b></label> <br>
+		<label class="titulo" ><b>Tabla de Usuarios Deshabilitados</b></label> <br>
 		<br><br>
 
 		<label class="lb-buscador"><b>Buscador: </b></label>
@@ -64,12 +64,15 @@
 	    </header>
 	</div>
 
-<script src="../../controles/js/trabajadorFuncion.js"></script>
+<div>	
+	<input id="" name="" type="hidden">
+</div>	
+
+<script src="../../controles/js/usuarioFuncion.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 
-$('#datosD').load('../../modelo/trabajadores/tablaTrabajadoresD.php');
-
+$('#datosD').load('../../modelo/usuarios/tablaUsuariosD.php');
 
 
 });

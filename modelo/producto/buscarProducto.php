@@ -1,7 +1,16 @@
 <script type="text/javascript">
+
+
 $(function(){
     $('#buscadorProducto').change(function(){
-        var abc = $("#listaProd option[value='" + $('#buscadorProducto').val() + "']").attr('data-id');
+        var abc2 = $("#listaProd option[value='" + $('#buscadorProducto').val() + "']").attr('data-id');
+        $('#idDescripcionR').val(abc2)
+    });
+});
+
+$(function(){
+    $('#buscadorProducto').change(function(){
+        var abc = $("#listaProd option[value='" + $('#buscadorProducto').val() + "']").attr('data-comics');
         $('#idProductoR').val(abc)
     });
 });
@@ -17,7 +26,7 @@ $query = "SELECT * FROM producto ORDER BY clvProducto";
 
 if(isset($_POST['consulta'])){
   $q = $conexion->real_escape_string($_POST['consulta']);
-  $query = "SELECT clvProducto, nombre FROM producto WHERE nombre LIKE '%".$q."%'";
+  $query = "SELECT clvProducto, nombre, descripcion FROM producto WHERE nombre LIKE '%".$q."%'";
 }
 
 
@@ -34,7 +43,7 @@ if ($resultado ->num_rows > 0)  {
            while($mostrar = $resultado->fetch_assoc()){
             $salida.="
 
-            <option value='".$mostrar["nombre"]."' data-id='".$mostrar['clvProducto']."'>".$mostrar['clvProducto']."</option>";
+            <option value='".$mostrar["nombre"]."' data-id='".$mostrar['descripcion']."' data-comics='".$mostrar['clvProducto']."' >".$mostrar['clvProducto']."</option>";
            }
     $salida.="
           </datalist>";   

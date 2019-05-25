@@ -17,6 +17,10 @@
     <script src="../../controles/librerias/jquery-3.3.1.js"></script>
 </head>
 <body>
+		<!--MENU DE NOTIFICACIONES-->	
+<div align="center" >			
+		<?php include "../includes/header.php" ?>		
+</div>
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
@@ -160,10 +164,10 @@
 		</table>			
 	</form>
 	<br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 	
 </html>

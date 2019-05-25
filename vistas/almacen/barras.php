@@ -23,7 +23,7 @@ require_once('../../modelo/conexion/conexion.php');
 	var barChartData = {
 		labels : [
 		<?php 
-		$sql = "SELECT NombreProducto, CantidadExistencia FROM almacen";
+		$sql = "SELECT NombreProducto, ExistenciaKP FROM almacen";
 		$result = mysqli_query($conexion,$sql);
 		while ($registros = mysqli_fetch_array($result))
 		{
@@ -51,7 +51,7 @@ require_once('../../modelo/conexion/conexion.php');
 				$sql = "SELECT * FROM almacen";
 				$result = mysqli_query($conexion,$sql);
 				?>
-				[<?php while ($registros = mysqli_fetch_array($result)){ ?><?php echo $registros["CantidadExistencia"] ?>, <?php }?>]
+				[<?php while ($registros = mysqli_fetch_array($result)){ ?><?php echo $registros["ExistenciaKP"] ?>, <?php }?>]
 
 			}
 		]

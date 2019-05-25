@@ -1,21 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-
-if($varsesion == null || $varsesion = ''){
-	echo 'Uste no tiene Autorización';
-	header("Location: ../../index.html");
-	die();
-}
-
-require('../../modelo/conexion/conexion.php');
-$idClienteE='idClienteE';
-
-$sql3="SELECT idCliente, nombreCliente, apCliente, amCliente, telefonoCliente FROM cliente WHERE idCliente='$idClienteE'";  
-$resultado2=mysqli_query($conexion, $sql3);
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -49,6 +31,12 @@ $resultado2=mysqli_query($conexion, $sql3);
 
 
 <body>
+
+	<!--MENU DE NOTIFICACIONES-->	
+<div align="center" >			
+		<?php include "../includes/header.php" ?>		
+</div>
+
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
@@ -72,10 +60,11 @@ $resultado2=mysqli_query($conexion, $sql3);
 	</div>
 		<!--------TABLAS-------->
 <br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 
 <!--MODAL PARA EDITAR CLIENTES-->
@@ -119,12 +108,9 @@ $resultado2=mysqli_query($conexion, $sql3);
 					<div class="modal-footer">  
 						<input id="actualizar" type="submit" class="btn btn-success" value="Actualizar">
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-					</div>
-					
-				</form>
-				
-			</div>
-			
+					</div>					
+				</form>				
+			</div>			
 		</div>
 	</div>
 </div>

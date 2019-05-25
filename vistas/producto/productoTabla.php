@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Proveedores Deshabilitados</title>
+	<title>Tabla de Productos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" >
 	<meta http-equiv="X-UA-Compatible" content="le-edge">
@@ -23,28 +23,30 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script src="../../modelo/proveedores/tablaProveedoresH.php"></script>
-	<script src="../../controles/js/tablaProveedoresD.js"></script>
-	<script src="../../controles/js/ProveedorFuncion.js"></script>
+	<script src="../../controles/js/productoFuncion.js"></script>
+	<script src="../../controles/js/productoTabla.js"></script>
  
 </head>
 
 
 <body>
-		<!--MENU DE NOTIFICACIONES-->	
+
+	<!--MENU DE NOTIFICACIONES-->	
 <div align="center" >			
 		<?php include "../includes/header.php" ?>		
 </div>
+
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
 		<?php include "../includes/nav.php" ?>
 	</header>	
 </div>	
+
 		<!--------TABLAS-------->	
 <br><br>
 	<div align="center" >
-		<label class="titulo" ><b>Tabla de Proveedores Deshabilitados</b></label> <br>
+		<label class="titulo" ><b>Tabla de Productos</b></label> <br>
 		<br><br>
 
 		<label class="lb-buscador"><b>Buscador: </b></label>
@@ -52,21 +54,17 @@
 	</div>
 
 	<div>
-		<div id="datosD"></div>
+		<div id="datosProducto"></div>
 		<br>
 	</div>
-		<!--------TABLAS-------->
+		<!--------copy-------->
 <br><br>
+
 	<div>
 		<header>
 		<?php include "../includes/copy.php" ?>
 	    </header>
 	</div>
-
-<div>	
-	<input id="" name="" type="hidden">
-</div>	
-
 
 <!--MODAL PARA EDITAR CLIENTES-->
 <div class="modal fade" id="modaledi" role="dialog">
@@ -74,65 +72,87 @@
 		<div class="modal-content">
 			<div class="modal-header" id="piepaguinamd">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
-				<h3 class="modal-title">Datos de Proveedor</h3>
+				<h3 class="modal-title">Datos de Producto</h3>
 			</div>
-
 
 			<div class="modal-body">
 											
-				<form class="form-horizontal" id="formUser">
-
+				<form class="form-horizontal" id="myformularioProdE">
+					<input type="hidden" id="idProductoE" name="idProductoE" class="form-control">					
 					<div class="form-group">
-
-						<label for="" class="control-label col-xs-5">*Nombre:</label>
-						<div class="col-xs-5">							
-							<input id="nombreClienteE" name="" type="text" class="form-control" placeholder="Ingrese sus Nombres">
+												
+						<label for="" class="control-label col-xs-5">Nombre del Producto:</label>
+						<div class="col-xs-5">													
+							<input id="nombreProductoE" name="" type="text" class="form-control"  placeholder="Ingrese un Nombre" maxlength="20">
+						</div>						
+					</div>
+					<div class="form-group">
+						<label for="" class="control-label col-xs-5">Descripción:</label>
+						<div class="col-xs-5">
+							<input id="descProductoE" name=""  type="text" class="form-control" placeholder="Ingrese una Descripción" maxlength="30">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="apCliente" class="control-label col-xs-5">*Apellido Paterno:</label>
+						<label for="amCliente" class="control-label col-xs-5">Tipo de Carne:</label>
 						<div class="col-xs-5">
-							<input id="apCliente" name=""  type="text" class="form-control" placeholder="Ingrese sus Apellidos">
+							<select class="combobox form-control" id="tipoCarneE">
+								<option value="1">Selecciona el Tipo</option>
+  								<option value="Res">Res</option>
+  								<option value="Puerco">Puerco</option>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="amCliente" class="control-label col-xs-5">*Apellido Materno:</label>
+						<label for="telefonoCliente" class="control-label col-xs-5">Tipo de Medida:</label>
 						<div class="col-xs-5">
-							<input id="amCliente" name=""  type="password" class="form-control" placeholder="Ingrese sus Apellidos">
+							<select class="combobox form-control" id="unidadMedE">
+  								<option value="1">Selecciona la Medida</option>
+  								<option value="pza y kls">Pieza y Kilos</option>
+  								<option value="cajas y pza">Cajas y pieza</option>
+  								<option value="kl y cajas">kilogramos y Cajas</option>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="telefonoCliente" class="control-label col-xs-5">*Teléfono:</label>
+						<label for="telefonoCliente" class="control-label col-xs-5">Tiempo de Caducidad:</label>
 						<div class="col-xs-5">
-							<input id="telefonoCliente" name=""  type="password" class="form-control" placeholder="Ingrese sus Apellidos">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="tipo" class="control-label col-xs-5">*Código Postal:</label>
-						<div class="col-xs-5">
-							<input id="txt-buscador" name=""  type="password" class="form-control" placeholder="Ingrese sus Apellidos">
+							<select class="combobox form-control" id="tiempCadE">
+  								<option value="1">Selecciona la Caducidad</option>
+  								<option value="7">1 Semana</option>
+  								<option value="14">2 Semana</option>
+  								<option value="21">3 Semana</option>
+  								<option value="28">4 Semana</option>
+							</select>
 						</div>
 					</div>
 					<div class="modal-footer">  
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 						<input id="actualizar" type="submit" class="btn btn-success" value="Actualizar">
-					</div>
-					
-				</form>
-				
-			</div>
-			
-		</div><!-- /.modal-content -->
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+					</div>					
+				</form>				
+			</div>			
+		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function(){
 
-$('#datosD').load('../../modelo/proveedores/tablaProveedoresD.php');
+	$('#datosProducto').load('../../modelo/producto/tablaProducto.php');
 
+	$('#actualizar').click(function(){
+		idProductoE=$('#idProductoE').val();
+		nombreProductoE=$('#nombreProductoE').val();
+		descProductoE=$('#descProductoE').val();
+		tipoCarneE=$('#tipoCarneE').val();
+		unidadMedE=$('#unidadMedE').val();
+		tiempCadE=$('#tiempCadE').val();
 
+		actualizarProducto(idProductoE,nombreProductoE,descProductoE,tipoCarneE,unidadMedE,tiempCadE);
+	
+	});
 });
 </script>
+
 </body>
 </html>

@@ -1,13 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-if($varsesion == null || $varsesion = ''){
-	echo 'Uste no tiene Autorización';
-	header("Location: ../../index.html");
-	die();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,6 +30,10 @@ if($varsesion == null || $varsesion = ''){
 
 
 <body>
+		<!--MENU DE NOTIFICACIONES-->	
+<div align="center" >			
+		<?php include "../includes/header.php" ?>		
+</div>
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
@@ -114,7 +108,10 @@ if($varsesion == null || $varsesion = ''){
 								</option>
 								<option>
 									Administrador
-								</option>		
+								</option>	
+								<option>
+									Gerente
+								</option>	
 							</select>
 						</td>
 					</tr>
@@ -267,10 +264,10 @@ if($varsesion == null || $varsesion = ''){
 	</script>
 
 	<br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 </body>
 </html>

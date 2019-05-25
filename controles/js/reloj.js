@@ -1,43 +1,43 @@
 onload = function fechaVen() {
     var today = new Date();
-    var hr = today.getHours();
-    var min = today.getMinutes();
-    var sec = today.getSeconds();
-    ap = (hr < 12) ? "AM" : "PM";
-    hr = (hr == 0) ? 12 : hr;
-    hr = (hr > 12) ? hr - 12 : hr;
+    var hrs = today.getHours();
+    var mint = today.getMinutes();
+    var secs = today.getSeconds();
+    ap = (hrs < 12) ? "AM" : "PM";
+    hrs = (hrs == 0) ? 12 : hrs;
+    hrs = (hrs > 12) ? hrs - 12 : hrs;
     //Add a zero in front of numbers<10
-    hr = checkTime(hr);
-    min = checkTime(min);
-    sec = checkTime(sec);
+    hrs = checkTime(hrs);
+    mint = checkTime(mint);
+    secs = checkTime(secs);
    
     //fecha
     var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 
     'Noviembre', 'Diciembre'];
     var days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
     //var curWeekDay = days[today.getDay()];
-    var curDay = today.getDate();
-    var curMonth = today.getMonth()+1;
-    var curYear = today.getFullYear();
+    var curDay1 = today.getDate();
+    var curMonth1 = today.getMonth()+1;
+    var curYear1 = today.getFullYear();
     
-    curDay = ceros(curDay);
-    curMonth = ceros(curMonth);
+    curDay1 = ceros(curDay1);
+    curMonth1 = ceros(curMonth1);
 
-    var date = curDay+"/"+curMonth+"/"+curYear; 
+    var date1 = curDay1+"/"+curMonth1+"/"+curYear1; 
 
-    document.getElementById("clock").value = hr + ":" + min + ":" + sec + " " + ap;
-    document.getElementById("fechaDate").value = date;
-    document.getElementById("date").innerHTML = date;
+    //document.getElementById("clock").value = hrs + ":" + mint + ":" + secs + " " + ap;
+    document.getElementById("fechaDate").value = date1;
+    //document.getElementById("date").innerHTML = date;
 	//$('#fechaDate').val(date);
 
 	
-    	if (hr >= 8 && min >= 11 && hr <= 8 && min <= 11 && sec < 1) {
+    /*	if (hr >= 8 && min >= 11 && hr <= 8 && min <= 11 && sec < 1) {
         	//document.getElementById("saludo").innerHTML = "buenos días";
     		notify();
     	}else{
     		false;
     	}
-	
+	*/
     /*if (hr >= 12 && min >= 1 && hr < 7 ) {
         document.getElementById("saludo").innerHTML = "buenas tardes";
     }
@@ -59,7 +59,7 @@ function ceros(i) {
     }
     return i;
 }
-
+/*
 	function notify(){
 		if (!("Notification" in window)) {
 			alert("TU NAVEGADOR NO SOPORTA ");
@@ -72,4 +72,4 @@ function ceros(i) {
 				}
 			});
 		}
-	}
+	}*/

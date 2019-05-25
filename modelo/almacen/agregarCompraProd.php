@@ -7,9 +7,7 @@ require_once "../conexion/conexion.php";
  $total='0';
 
  $idUltimo=$_POST['idUltimo'];
- $totalAct=$_POST['total'];
-
-
+ $costPedido=$_POST['costPedido'];
 
   	if ($idProveedorRP == "" || $fecha == "") {
   		echo "campos obligatorios";
@@ -23,7 +21,7 @@ require_once "../conexion/conexion.php";
 
 	}
 
-	$actTotal=$conexion->query("UPDATE compra SET totalCompra='$totalAct' WHERE clvCompra='$idUltimo'"); 
+	$actTotal=$conexion->query("UPDATE compra SET totalCompra='$costPedido' WHERE clvCompra='$idUltimo'"); 
 
 
    mysqli_close($conexion);

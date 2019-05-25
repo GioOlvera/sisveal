@@ -4,7 +4,7 @@ require ("conexion/conexion.php");
   //$conexion=conexion();
   // Obtengo los datos cargados en el formulario de login.
 $usuario = $_POST['usuario'];
-$clave =$_POST['clave'];
+$clave =md5($_POST ['clave']);
 
   // Consulta segura para evitar inyecciones SQL.
 $sql = "SELECT usuario, clave, tipo FROM usuario WHERE usuario='$usuario' AND clave ='$clave'";

@@ -8,18 +8,27 @@ require_once "../conexion/conexion.php";
  $tipoCarne=$_POST['tipoCarne'];
  $unidadMed=$_POST['unidadMed'];
  $tiempCad=$_POST['tiempCad'];
- $precioC=$_POST['precioC'];
- $precioV=$_POST['precioV'];
- $unidadesC=$_POST['unidadesC'];
- $unidadesK=$_POST['unidadesK'];
 
 
-  	if ($nombreProducto == "" || $idProveedorRP == "" || $descProducto == "" || $tipoCarne == "1" || $unidadMed == "1" || $tiempCad == "1" || $precioC == "" || $precioV == "" || $unidadesC == "" || $unidadesK == "") {
+
+ $ExistenciaKP='0';
+ $ExistenciaC='0';
+ $CantidadLimite='0';
+ $FechaEntrada='0';
+ $PrecioUnitario='0';
+
+
+  	if ($nombreProducto == "" || $idProveedorRP == "" || $descProducto == "" || $tipoCarne == "1" || $unidadMed == "1" || $tiempCad == "1" /*|| $precioC == "" || $precioV == "" || $unidadesC == "" || $unidadesK == ""*/) {
   		echo "campos obligatorios";
   	}else{
 
-  	$inserta="INSERT INTO producto(idProveedor, nombre, descripcion, categoriaProd, unidadMedida, tiempoCaducidad, precioProductoCom, precioProductoVen, unidadesCaja, kilosCaja) values ('$idProveedorRP', '$nombreProducto', '$descProducto', '$tipoCarne', '$unidadMed','$tiempCad', '$precioC', '$precioV', '$unidadesC', '$unidadesK')";
+  	$inserta="INSERT INTO producto(idProveedor, nombre, descripcion, categoriaProd, unidadMedida, tiempoCaducidad) values ('$idProveedorRP', '$nombreProducto', '$descProducto', '$tipoCarne', '$unidadMed','$tiempCad')";
   	echo $resultado=mysqli_query($conexion,$inserta);
+
+
+  	$inserta2="INSERT INTO almacen(NombreProducto, idProveedores, Categoria, ExistenciaKP, ExistenciaC, CantidadLimite, FechaEntrada, PrecioUnitario) values ('$nombreProducto', '$idProveedorRP', '$tipoCarne', '$ExistenciaKP',
+  	'$ExistenciaC', '$CantidadLimite', '$FechaEntrada', '$PrecioUnitario')";
+  	echo $resultado2=mysqli_query($conexion,$inserta2);
   
 	}
 

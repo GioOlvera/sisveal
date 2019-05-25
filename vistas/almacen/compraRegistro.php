@@ -1,13 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-if($varsesion == null || $varsesion = ''){
-	echo 'Uste no tiene Autorización';
-	header("Location: ../../index.html");
-	die();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,9 +6,10 @@ if($varsesion == null || $varsesion = ''){
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" >
 	<meta http-equiv="X-UA-Compatible" content="le-edge">
 	<link rel="stylesheet" href="../css/PrincipalEstilo.css">
-	<link rel="stylesheet" href="../css/formClientes.css" > 
+	<link rel="stylesheet" href="../css/formClientes.css" >
+	<!-- 
 	<link rel="stylesheet" href="../css/tablaVenta.css">
-	<link rel="stylesheet" href="../css/buscador.css" > 
+	<link rel="stylesheet" href="../css/buscador.css" > -->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../../controles/librerias/alertifyjs/css/alertify.css">
 	<link rel="stylesheet" type="text/css" href="../../controles/librerias/alertifyjs/css/themes/default.css">
@@ -26,23 +17,27 @@ if($varsesion == null || $varsesion = ''){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<script src="../../controles/librerias/jquery-3.3.1.js"></script>
-	<script src="../../controles/js/jquery.dataTables.min.js"></script>
-
+	<script src="../../controles/librerias/quey.js"></script>
 	<script src="../../controles/librerias/jquery.min.js"></script>	
-	<!--<script src="../../controles/librerias/bootstrap.min.js"></script>-->
 	<script src="../../controles/librerias/alertifyjs/alertify.js"></script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<script src="../../controles/js/compraFuncion.js"></script>	
-	<script src="../../controles/js/buscarProveedor.js"></script>
-	<script src="../../controles/js/buscarProducto.js"></script>	
-	<script src="../../controles/js/reloj.js"></script>	
+	<script src="../../controles/js/buscarProveedor.js"></script>	
+	
 	
 </head>
 
+<body >
 
-<body>
+			<!--MENU DE NOTIFICACIONES-->	
+<div align="center">	
+	<header>		
+		<?php include "../includes/header.php" ?>	
+	</header>	
+</div>
+
 	<!--MENU-->	
 	
 <div class="menu-horizontal" align="center">		
@@ -53,39 +48,33 @@ if($varsesion == null || $varsesion = ''){
 			<!--------FORMULARIO-------->	
 	<header class="header-for">
 		<div>		
-			<form class="formulario" id="myformularioComp" >
+			<form class="formulario" id="myformularioComp">
 				<h2 class="lb-cliente-t">Realizar Compra</h2>
 				<br>
-				<table  width="960" height="100">
+				<table width="900">
 					<tr>
-						<td width="150" height="50" align="center">
+						<td width="400" height="50" align="right">
 							<label class="lb-cliente">Buscar Proveedor:</label>
 						</td>
-						<td width="300" height="50" style="position: absolute;">
+						<td width="300"  style="position: absolute;" align="center">
 							<input type="hidden" class="txt-cliente" id="idProveedorRP">
 							<input class="txt-cliente" id="buscadorProveedor" list="listaProv" placeholder="Buscar...">
-							<div id="proveedorDATOS">
-							
-						</td>
-						<td width="120" height="50">
-							<label class="lb-cliente">Fecha:</label>
-						</td>
-						<td width="340" height="50" >
-							<input type="hidden" id="clock">
-							<input type="hidden" class="txt-cliente" id="fechaDate">
-							<h4 class="lb-cliente" id="date"></h4>
-						</td>						
-					</tr>
-					<tr>
-						<td colspan="4" align="center">
-							<br>
-							<input type="button" class="bot-reg" id="aceptar" name="" onclick="aceptar()" value="Aceptar">
+							<div id="proveedorDATOS">							
 						</td>
 					</tr>
 				</table>
+				<br>
+				<table width="1000" height="10">	
+					<tr>	
+						<td align="center">							
+							<input type="hidden" class="txt-cliente" id="fechaDate">
+							<input type="button" class="bot-reg" id="aceptar" onclick="cambiar()" value="Aceptar">
+						</td>						
+					</tr>
+				</table>
 			</form>
-
-     <!--AGREGAR PRODUCTO -->
+		</div>
+     <!--AGREGAR PRODUCTO 
 			<form class="formulario" id="myformularioCompD" >
 				<br>
 				<table  width="960" height="100">
@@ -94,15 +83,16 @@ if($varsesion == null || $varsesion = ''){
 							<label class="lb-cliente">*Nombre del Producto:</label>
 						</td>
 						<td width="300" height="50">
-						<?php 
+						<?php /*
 							require_once "../../modelo/conexion/conexion.php";
 							$ultimo= "SELECT * FROM compra ORDER BY clvCompra DESC LIMIT 1";
 							$resultado=mysqli_query($conexion, $ultimo);
 							while($mostrar=mysqli_fetch_array($resultado)){
 						?>
 							<input type="hidden" class="txt-cliente" id="idUltimo" value="<?php echo $mostrar['clvCompra']; ?>">
+
 						<?php 
-							}
+							}*/
 						?>
 
 							<input type="hidden" class="txt-cliente" id="idProductoR">
@@ -150,11 +140,11 @@ if($varsesion == null || $varsesion = ''){
 										<th class="th">Eliminar</th>
 									</tr>
 								</thead>
-								<?php for ($i=1; $i<=2; $i++){ ?>
+								<?php // for ($i=1; $i<=2; $i++){ ?>
 									<tr width="80">
 										<tbody id="listado"></tbody>
 									</tr>
-								<?php } ?>
+								<?php //} ?>
 							</table>									
 						</div>
 					</td>
@@ -176,10 +166,11 @@ if($varsesion == null || $varsesion = ''){
 						
 		</div>
 	</form>
-
+-->
 
 	<script src="../../controles/js/compraFuncion.js"></script>	
 	<script src="../../controles/js/reloj.js"></script>	
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 
@@ -195,8 +186,16 @@ if($varsesion == null || $varsesion = ''){
 			});
 
 		});
+
+	
 	</script>
-	<!--ACTUALIZAR TOTAL-->
+	<script type="text/javascript">
+		function cambiar(){ 
+		setTimeout("location.href='../../vistas/almacen/descripcionCompra.php'", 1000);
+		}
+	</script>
+	<!--ACTUALIZAR TOTAL
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 
@@ -209,8 +208,8 @@ if($varsesion == null || $varsesion = ''){
 
 		});
 	</script>
-
-	<!--TABLA ARRAY-->
+-->
+	<!--TABLA ARRAY
 <script type="text/javascript">
 function Jugador(idV, idL, nombreProd, cantidad, precio, subTot) {
   this.idV = idV;
@@ -337,12 +336,12 @@ function eliminar(i){
 
 
 </script>
-
+-->
 	<br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 	</header>
 </body>

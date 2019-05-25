@@ -1,13 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-if($varsesion == null || $varsesion = ''){
-	echo 'Uste no tiene Autorización';
-	header("Location: ../../index.html");
-	die();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,13 +14,13 @@ if($varsesion == null || $varsesion = ''){
 	<link rel="stylesheet" type="text/css" href="../../controles/librerias/alertifyjs/css/themes/default.css">
 	<link rel="icon" type="text/css"  href="../img/iCO.ico" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-	<script src="../../controles/librerias/jquery-3.3.1.js"></script>
+	
 	<script src="../../controles/js/jquery.dataTables.min.js"></script>
 
+	<script src="../../controles/librerias/jquery-3.3.1.js"></script>
 	<script src="../../controles/librerias/quey.js"></script>
 	<script src="../../controles/librerias/jquery.min.js"></script>	
-	<!--<script src="../../controles/librerias/bootstrap.min.js"></script>-->
+	<script src="../../controles/librerias/bootstrap.min.js"></script>
 	<script src="../../controles/librerias/alertifyjs/alertify.js"></script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -39,12 +29,14 @@ if($varsesion == null || $varsesion = ''){
 	<script src="../../controles/js/buscarCliente.js"></script>
 	<script src="../../controles/js/tablaVenta.js"></script>
 	<script src="../../controles/js/buscarProducto.js"></script>	
-	<script src="../../controles/js/reloj.js"></script>	
 	
 </head>
 
-
 <body >
+	<!--MENU DE NOTIFICACIONES-->	
+<div align="center" >			
+		<?php include "../includes/header.php" ?>		
+</div>
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
@@ -89,9 +81,9 @@ if($varsesion == null || $varsesion = ''){
 							<label class="lb-cliente">Fecha Actual:</label>
 						</td>
 						<td width="280">
-							<input type="hidden" id="clock">
+							<!--<input type="hidden" id="clock">
 							<input type="hidden" class="txt-cliente" id="fechaDate">
-							<h4 class="lb-cliente" id="date"></h4>
+							<h4 class="lb-cliente" id="date"></h4>-->
 						</td>
 					</tr>
 					<tr>
@@ -199,7 +191,6 @@ if($varsesion == null || $varsesion = ''){
 		</form>
 	</div>
 	<script src="../../controles/js/ventaFuncion.js"></script>
-	<script src="../../controles/js/reloj.js"></script>	
 	<script type="text/javascript">
 		$(document).ready(function(){
 
@@ -351,10 +342,10 @@ function eliminar(i){
 </script>
 
 	<br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 	</header>
 </body>

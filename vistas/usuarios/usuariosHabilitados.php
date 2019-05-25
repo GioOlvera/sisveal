@@ -1,16 +1,3 @@
-<?php
-session_start();
-$varsesion = $_SESSION['usuario'];
-
-
-if($varsesion == null || $varsesion = ''){
-	echo 'Uste no tiene Autorización';
-	header("Location: ../../index.html");
-	die();
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,6 +31,10 @@ if($varsesion == null || $varsesion = ''){
 
 
 <body>
+		<!--MENU DE NOTIFICACIONES-->	
+<div align="center" >			
+		<?php include "../includes/header.php" ?>		
+</div>
 	<!--MENU-->	
 <div class="menu-horizontal" align="center">		
 	<header>
@@ -67,10 +58,10 @@ if($varsesion == null || $varsesion = ''){
 	</div>
 		<!--------TABLAS-------->
 <br><br>
-	<div class="copiray" >
-		<p>Calle Matamoros N°139, San Lucas el Grande, el Verde Puebla</p>
-		<p>Reynaldo Mena Salazar</p>
-		<p>@copyright SISVEAL</p>
+	<div>
+		<header>
+		<?php include "../includes/copy.php" ?>
+	    </header>
 	</div>
 
 <div>	
@@ -90,40 +81,30 @@ if($varsesion == null || $varsesion = ''){
 
 			<div class="modal-body">
 											
-				<form class="form-horizontal" id="myformularioT">
-					<input type="hidden" id="idTrabajadorT" name="" class="form-control">
+				<form class="form-horizontal" id="myformularioU">
+					<input type="hidden" id="idTrabajadorU" name="" class="form-control">
 					<div class="form-group">
-						<label for="" class="control-label col-xs-5">*Cargo:</label>
+						<label for="" class="control-label col-xs-5">*Usuario:</label>
 						<div class="col-xs-5">							
-							<select class="combobox form-control" id="cargo">
-								<option>
-									Selecciona el Cargo
-								</option>
-								<option>
-									Chofer
-								</option>
-								<option>
-									Cargardor 
-								</option>
-								<option>
-									Vendedor
-								</option>
-								<option>
-									Administrador
-								</option>		
-							</select>
+							<input id="usuarioU" name=""  type="text" class="form-control" placeholder="Ingrese el Usuario"  maxlength="30">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label col-xs-5">*Telèfono:</label>
-						<div class="col-xs-5">
-							<input id="telefonoA" name=""  type="text" class="form-control" placeholder="Ingrese el Teléfono"  maxlength="10">
+						<label for="" class="control-label col-xs-5">*Email:</label>
+						<div class="col-xs-5">							
+							<input id="emailU" name=""  type="text" class="form-control" placeholder="Ingrese el Correo Electrónico"  maxlength="30">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label col-xs-5">*Edad:</label>
+						<label for="" class="control-label col-xs-5">*Contraseña:</label>
 						<div class="col-xs-5">
-							<input id="edadA" name=""  type="text" class="form-control" placeholder="Ingrese la Edad"  maxlength="2">
+							<input id="passwordU" name=""  type="password" class="form-control" placeholder="Ingrese la Contraseña"  maxlength="20">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="control-label col-xs-5">*Repetir Contraseña:</label>
+						<div class="col-xs-5">
+							<input id="passwordU2" name=""  type="password" class="form-control" placeholder="Ingrese la Contraseña"  maxlength="20">
 						</div>
 					</div>
 					<div class="modal-footer">  
@@ -145,27 +126,35 @@ $(document).ready(function(){
 $('#datos').load('../../modelo/usuarios/tablaUsuariosH.php');
 
 $('#actualizar').click(function(){
-		idTrabajadorT=$('#idTrabajadorT').val();
-		cargo=$('#cargo').val();
-		telefonoA=$('#telefonoA').val();
-		edadA=$('#edadA').val();
-		actualizarTrabajador(idTrabajadorT,cargo,telefonoA,edadA);
 
-		/*
-		if($('#nombreClienteE').val()==""){
-			alertify.alert("Debes Ingresar el Código Postal");
+		idTrabajadorU=$('#idTrabajadorU').val();
+		usuarioU=$('#usuarioU').val();
+		emailU=$('#emailU').val();
+		password=$('#passwordU').val();
+		password2=$('#passwordU2').val();
+
+	
+		
+		if($('#usuarioU').val()==""){
+			alertify.alert("Debes Ingresar el Usuario");
 			return false;
-		}
-		else if($('#apClienteE').val()=="Selecciona el Estado"){
+		}else if($('#emailU').val()=="Ingresar el Correo Electrónico"){
 			alertify.alert("Debes Seleccionar el Estado");
 			return false;
-		}else if($('#amClienteE').val()=="Selecciona el Municipio"){
+		}else if($('#passwordU').val()=="Ingrese una Contraseña"){
 			alertify.alert("Debes Seleccionar el Municipio");
 			return false;
-		}else if($('#telefonoClienteE').val()=="Selecciona el Localidad"){
+		}else if($('#passwordU2').val()=="Ingrese una Contraseña"){
 			alertify.alert("Debes Seleccionar la Localidad");
 			return false;
-		}*/
+		}
+
+		if (password == password2){
+				actualizarUsuario(idTrabajadorU,usuarioU,emailU,password);											
+		}else{
+				alertify.alert("Debe Ingresar la Misma Contraseña");
+				return false;
+		}
 
 	
 	});
